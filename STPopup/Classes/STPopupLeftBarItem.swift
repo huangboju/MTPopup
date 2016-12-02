@@ -78,7 +78,7 @@ class STPopupLeftBarItem: UIBarButtonItem {
         bar2.frame = CGRect(x: barX, y: bar2Y, width: barWidth, height: barHeight)
 
         bar1.transform = CGAffineTransform(rotationAngle: .pi / 4)
-        bar2.transform = CGAffineTransform(rotationAngle: -.pi / 4)
+        bar2.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 4)
     }
 
     override var tintColor: UIColor? {

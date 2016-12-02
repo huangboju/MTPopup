@@ -17,8 +17,8 @@ class ViewController: UIViewController {
         return tableView
     }()
 
-    lazy var data: [String] = [
-        "action"
+    lazy var controllers = [
+        FirstController.self
     ]
 
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return controllers.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +47,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = "\(controllers[indexPath.row].classForCoder())"
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

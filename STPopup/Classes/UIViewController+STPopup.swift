@@ -92,7 +92,7 @@ extension UIViewController {
                     value.width = UIScreen.main.bounds.height
                 }
             }
-
+  
             objc_setAssociatedObject(self, &AssociatedKeys.contentSizeInPopupKey, NSValue(cgSize: value), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
 

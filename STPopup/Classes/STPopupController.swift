@@ -483,10 +483,9 @@ class STPopupController: NSObject {
     func keyboardWillHide(notification: Notification) {
         keyboardInfo = nil
 
-        guard let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber) else { return }
-        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? Int) else { return }
+        guard let keyboardInfo = notification.userInfo as? [String: Any] else { return }
 
-        setAnimation(with: curve, duration: duration.doubleValue, transform: CGAffineTransform.identity)
+        setAnimation(with: keyboardInfo, transform: CGAffineTransform.identity)
     }
 
     func adjustContainerViewOrigin() {
@@ -519,12 +518,23 @@ class STPopupController: NSObject {
             }
         }
 
-        guard let duration = (keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber) else { return }
-        guard let curve = (keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int) else { return }
-
         containerView?.transform = lastTransform!
 
-        setAnimation(with: curve, duration: duration.doubleValue, transform: CGAffineTransform(translationX: 0, y: -offsetY))
+        setAnimation(with: keyboardInfo, transform: CGAffineTransform(translationX: 0, y: -offsetY))
+    }
+
+    func setAnimation(with keyboardInfo: [String: Any], transform: CGAffineTransform) {
+        guard let duration = (keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
+        guard let curve = (keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int) else { return }
+
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
+        UIView.setAnimationDuration(duration)
+
+        containerView?.transform = transform
+
+        UIView.commitAnimations()
     }
 
     func getCurrentTextInput(in view: UIView) -> UIView? {
@@ -550,17 +560,6 @@ class STPopupController: NSObject {
     // MARK: - STPopupFirstResponderDidChangeNotification
     func firstResponderDidChange() {
         adjustContainerViewOrigin()
-    }
-
-    func setAnimation(with curve: Int, duration: Double, transform: CGAffineTransform) {
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
-        UIView.setAnimationDuration(duration)
-
-        containerView?.transform = transform
-
-        UIView.commitAnimations()
     }
 }
 
