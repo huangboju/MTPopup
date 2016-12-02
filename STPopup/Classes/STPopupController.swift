@@ -6,23 +6,8 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-import UIKit
-
 enum STPopupControllerTransitioningAction {
     case present, dismiss
-}
-
-protocol STPopupControllerTransitioning {
-    /** 
-     Return duration of transitioning, it will be used to animate transitioning of background view.
-     */
-    func popupControllerTransitionDuration(_ context: STPopupControllerTransitioningContext) -> TimeInterval
-
-    /** 
-     Animate transitioning the container view of popup controller. "completion" need to be called after transitioning is finished.
-     Initially "containerView" will be placed at the final position with transform = CGAffineTransformIdentity if it's presenting.
-     */
-    func popupControllerAnimateTransition(_ context: STPopupControllerTransitioningContext, completion: (() -> Void)?)
 }
 
 enum STPopupStyle {
@@ -223,7 +208,7 @@ class STPopupController: NSObject {
 
         let topViewController = self.topViewController
         destroyObservers(of: topViewController!)
-        viewControllers.remove(object: topViewController!)
+        viewControllers.remove(topViewController!)
 
         if presented {
             transit(from: topViewController!, toVC: self.topViewController!, animated: animated)
@@ -298,7 +283,6 @@ class STPopupController: NSObject {
             if topViewController.navigationItem.hidesBackButton {
                 topViewController.navigationItem.leftBarButtonItems = nil
             } else {
-                
                 navigationBar?.topItem?.leftBarButtonItems = [defaultLeftBarItem]
             }
         }
@@ -714,16 +698,6 @@ extension STPopupController: STPopupNavigationTouchEventDelegate {
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.containerView?.transform = CGAffineTransform.identity
             }, completion: nil)
-        }
-    }
-}
-
-extension Array where Element: Equatable {
-
-    // Remove first collection element that is equal to the given `object`:
-    mutating func remove(object: Element) {
-        if let index = index(of: object) {
-            remove(at: index)
         }
     }
 }

@@ -23,6 +23,8 @@
 		D81FC7871DCC3452002880DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81FC7851DCC3452002880DC /* LaunchScreen.storyboard */; };
 		D81FC7921DCC3453002880DC /* STPopupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FC7911DCC3453002880DC /* STPopupUITests.swift */; };
 		D85866811DD9BFBD003B7803 /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85866801DD9BFBD003B7803 /* FirstController.swift */; };
+		D894C6271DF1567C00A278A9 /* STPopupControllerTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894C6261DF1567C00A278A9 /* STPopupControllerTransitioning.swift */; };
+		D894C62A1DF1578800A278A9 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894C6291DF1578800A278A9 /* Array+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,9 @@
 		D81FC7911DCC3453002880DC /* STPopupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPopupUITests.swift; sourceTree = "<group>"; };
 		D81FC7931DCC3453002880DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D85866801DD9BFBD003B7803 /* FirstController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
+		D894C6261DF1567C00A278A9 /* STPopupControllerTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioning.swift; sourceTree = "<group>"; };
+		D894C6281DF156A000A278A9 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		D894C6291DF1578800A278A9 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,9 @@
 				D816CE651DDDD8950096B8C2 /* STPopupControllerTransitioningSlideVertical.swift */,
 				D816CE681DDDD8950096B8C2 /* UIResponder+STPopup.swift */,
 				D816CE691DDDD8950096B8C2 /* UIViewController+STPopup.swift */,
+				D894C6261DF1567C00A278A9 /* STPopupControllerTransitioning.swift */,
+				D894C6281DF156A000A278A9 /* Bridging.h */,
+				D894C6291DF1578800A278A9 /* Array+Extensions.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -144,6 +152,7 @@
 				D81FC7751DCC3452002880DC /* Sources */,
 				D81FC7761DCC3452002880DC /* Frameworks */,
 				D81FC7771DCC3452002880DC /* Resources */,
+				D894C6251DF1564100A278A9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -232,6 +241,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D894C6251DF1564100A278A9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D81FC7751DCC3452002880DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -240,9 +265,11 @@
 				D816CE721DDDD8950096B8C2 /* UIViewController+STPopup.swift in Sources */,
 				D816CE6A1DDDD8950096B8C2 /* STPopupContainerViewController.swift in Sources */,
 				D816CE6C1DDDD8950096B8C2 /* STPopupControllerTransitioningContext.swift in Sources */,
+				D894C62A1DF1578800A278A9 /* Array+Extensions.swift in Sources */,
 				D85866811DD9BFBD003B7803 /* FirstController.swift in Sources */,
 				D816CE711DDDD8950096B8C2 /* UIResponder+STPopup.swift in Sources */,
 				D816CE701DDDD8950096B8C2 /* STPopupNavigationBar.swift in Sources */,
+				D894C6271DF1567C00A278A9 /* STPopupControllerTransitioning.swift in Sources */,
 				D81FC77F1DCC3452002880DC /* ViewController.swift in Sources */,
 				D816CE6B1DDDD8950096B8C2 /* STPopupController.swift in Sources */,
 				D81FC77D1DCC3452002880DC /* AppDelegate.swift in Sources */,
@@ -390,6 +417,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = STPopup.STPopup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = STPopup/Classes/Bridging.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -403,6 +431,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = STPopup.STPopup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = STPopup/Classes/Bridging.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

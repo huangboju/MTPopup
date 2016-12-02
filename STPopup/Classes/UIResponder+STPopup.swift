@@ -6,8 +6,6 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-import UIKit
-
 let STPopupFirstResponderDidChange = Notification.Name(rawValue: "STPopupFirstResponderDidChange")
 
 extension UIResponder {

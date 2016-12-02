@@ -6,8 +6,6 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-import UIKit
-
 class STPopupControllerTransitioningContext: NSObject {
     var action: STPopupControllerTransitioningAction = .present
     var containerView: UIView?

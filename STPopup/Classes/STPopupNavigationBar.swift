@@ -6,8 +6,6 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-import UIKit
-
 protocol STPopupNavigationTouchEventDelegate {
     func popup(_ navigationBar: STPopupNavigationBar, touchDidMoveWith offset: CGFloat)
     func popup(_ navigationBar: STPopupNavigationBar, touchDidEndWith offset: CGFloat)

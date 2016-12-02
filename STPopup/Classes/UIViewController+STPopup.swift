@@ -6,8 +6,6 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-import UIKit
-
 extension UIViewController {
     private struct AssociatedKeys {
         static var landscapeContentSizeInPopupKey = "landscapeContentSizeInPopup"

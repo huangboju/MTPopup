@@ -6,8 +6,6 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-import UIKit
-
 class STPopupContainerViewController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
