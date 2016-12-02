@@ -19,6 +19,11 @@ class FirstController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+        textField.backgroundColor = UIColor.red
+        textField.becomeFirstResponder()
+        view.addSubview(textField)
+
         view.backgroundColor = UIColor.red
     }
 

@@ -154,7 +154,7 @@ class STPopupController: NSObject {
     }
 
     // MARK: - STPopupController present & dismiss & push & pop
-    var retainedPopupControllers: Set<STPopupController> = []
+    lazy var retainedPopupControllers: Set<STPopupController> = []
 
     func present(in viewController: UIViewController) {
         present(in: viewController, completion: nil)
@@ -474,7 +474,7 @@ class STPopupController: NSObject {
 
     // MARK: - UIKeyboardWillShowNotification & UIKeyboardWillHideNotification
     func keyboardWillShow(notification: Notification) {
-        guard getCurrentTextInputIn(containerView!) != nil else { return }
+        guard getCurrentTextInput(in: containerView!) != nil else { return }
 
         keyboardInfo = notification.userInfo as? [String: Any]
         adjustContainerViewOrigin()
@@ -483,22 +483,15 @@ class STPopupController: NSObject {
     func keyboardWillHide(notification: Notification) {
         keyboardInfo = nil
 
-        guard let duration = Double((notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? String)!) else { return }
-        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? UIViewAnimationCurve) else { return }
+        guard let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber) else { return }
+        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? Int) else { return }
 
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationCurve(curve)
-        UIView.setAnimationDuration(duration)
-
-        containerView?.transform = CGAffineTransform.identity
-
-        UIView.commitAnimations()
+        setAnimation(with: curve, duration: duration.doubleValue, transform: CGAffineTransform.identity)
     }
 
     func adjustContainerViewOrigin() {
         guard let keyboardInfo = keyboardInfo else { return }
-        guard let currentTextInput = getCurrentTextInputIn(containerView!) else { return }
+        guard let currentTextInput = getCurrentTextInput(in: containerView!) else { return }
 
         let lastTransform = containerView?.transform
         containerView?.transform = CGAffineTransform.identity
@@ -526,31 +519,26 @@ class STPopupController: NSObject {
             }
         }
 
-        guard let duration = Double((keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] as? String)!) else { return }
-        guard let curve = (keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] as? UIViewAnimationCurve) else { return }
+        guard let duration = (keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber) else { return }
+        guard let curve = (keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int) else { return }
 
         containerView?.transform = lastTransform!
 
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationCurve(curve)
-        UIView.setAnimationDuration(duration)
-
-        containerView?.transform = CGAffineTransform(translationX: 0, y: -offsetY)
-
-        UIView.commitAnimations()
+        setAnimation(with: curve, duration: duration.doubleValue, transform: CGAffineTransform(translationX: 0, y: -offsetY))
     }
 
-    func getCurrentTextInputIn(_ view: UIView) -> UIView? {
+    func getCurrentTextInput(in view: UIView) -> UIView? {
         if view.conforms(to: UIKeyInput.self) && view.isFirstResponder {
-            if view.isKind(of: NSClassFromString("UIWebBrowserView")!) || view.isKind(of: NSClassFromString("WKContentView")!) {
-                return nil
+            if let webBrowserClass = NSClassFromString("UIWebBrowserView"), let contentClass = NSClassFromString("WKContentView") {
+                if view.isKind(of: webBrowserClass) || view.isKind(of: contentClass) {
+                    return nil
+                }
             }
             return view
         }
 
         for subview in view.subviews {
-            let v = getCurrentTextInputIn(subview)
+            let v = getCurrentTextInput(in: subview)
             if let v = v {
                 return v
             }
@@ -560,9 +548,19 @@ class STPopupController: NSObject {
     }
 
     // MARK: - STPopupFirstResponderDidChangeNotification
-
     func firstResponderDidChange() {
         adjustContainerViewOrigin()
+    }
+
+    func setAnimation(with curve: Int, duration: Double, transform: CGAffineTransform) {
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
+        UIView.setAnimationDuration(duration)
+
+        containerView?.transform = transform
+
+        UIView.commitAnimations()
     }
 }
 
