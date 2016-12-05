@@ -15,7 +15,7 @@ class FirstController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = "Apple"
 
         contentSizeInPopup = CGSize(width: 280 * scaleW, height: 380 * scaleH)
