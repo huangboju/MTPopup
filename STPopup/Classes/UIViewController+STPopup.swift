@@ -17,11 +17,16 @@ extension UIViewController {
 
     open override class func initialize() {
         DispatchQueue.once(token: controllerOnceToken) {
-            swizzle(#selector(viewDidLoad), to: #selector(st_viewDidLoad))
-            swizzle(#selector(present(_:animated:completion:)), to: #selector(st_present(_:animated:completion:)))
-            swizzle(#selector(dismiss(animated:completion:)), to: #selector(st_dismiss(animated:completion:)))
-            swizzle(#selector(getter: presentedViewController), to: #selector(getter: st_presentedViewController))
-            swizzle(#selector(getter: presentingViewController), to: #selector(getter: st_presentingViewController))
+            let selectors = [
+                (#selector(viewDidLoad), #selector(st_viewDidLoad)),
+                (#selector(present(_:animated:completion:)), #selector(st_present(_:animated:completion:))),
+                (#selector(dismiss(animated:completion:)), #selector(st_dismiss(animated:completion:))),
+                (#selector(getter: presentedViewController), #selector(getter: st_presentedViewController)),
+                (#selector(getter: presentingViewController), #selector(getter: st_presentingViewController))
+            ]
+            selectors.forEach {
+                swizzle($0.0, to: $0.1)
+            }
         }
     }
 
