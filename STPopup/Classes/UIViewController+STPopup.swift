@@ -111,7 +111,6 @@ extension UIViewController {
 
     var landscapeContentSizeInPopup: CGSize {
         set {
-
             var value = newValue
             if value != .zero && value.width == 0 {
                 switch UIApplication.shared.statusBarOrientation {

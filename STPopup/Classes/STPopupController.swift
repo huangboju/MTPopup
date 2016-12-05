@@ -393,6 +393,7 @@ class STPopupController: NSObject {
         navigationBar?.frame = CGRect(x: 0, y: 0, width: containerViewWidth, height: preferredNavigationBarHeight)
         contentView?.frame = CGRect(x: 0, y: navigationBarHeight, width: contentSizeOfTopView.width, height: contentSizeOfTopView.height)
 
+        let topViewController = self.topViewController
         topViewController?.view.frame = contentView!.bounds
     }
 
@@ -423,7 +424,9 @@ class STPopupController: NSObject {
         containerViewController = STPopupContainerViewController()
         containerViewController?.view.backgroundColor = .clear
 
-        containerViewController?.modalPresentationStyle = .overCurrentContext
+        let flag = UIDevice.current.systemVersion.compare("8.0", options: .numeric) != .orderedAscending
+        containerViewController?.modalPresentationStyle = flag ? .overCurrentContext : .custom
+
         containerViewController?.transitioningDelegate = self
 
         setupBackgroundView()
