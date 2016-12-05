@@ -115,26 +115,30 @@ class STPopupController: NSObject {
         viewController.addObserver(self, forKeyPath: "contentSizeInPopup", options: .new, context: nil)
         viewController.addObserver(self, forKeyPath: "landscapeContentSizeInPopup", options: .new, context: nil)
 
-        viewController.navigationItem.addObserver(self, forKeyPath: "title", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "titleView", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "leftBarButtonItem", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "leftBarButtonItems", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "rightBarButtonItem", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "rightBarButtonItems", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "hidesBackButton", options: .new, context: nil)
+        setupNavigationItemObservers(viewController)
     }
 
     func destroyObservers(of viewController: UIViewController) {
         viewController.removeObserver(self, forKeyPath: "contentSizeInPopup")
         viewController.removeObserver(self, forKeyPath: "landscapeContentSizeInPopup")
 
-        viewController.navigationItem.addObserver(self, forKeyPath: "title", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "titleView", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "leftBarButtonItem", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "leftBarButtonItems", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "rightBarButtonItem", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "rightBarButtonItems", options: .new, context: nil)
-        viewController.navigationItem.addObserver(self, forKeyPath: "hidesBackButton", options: .new, context: nil)
+        setupNavigationItemObservers(viewController)
+    }
+    
+    func setupNavigationItemObservers(_ viewController: UIViewController) {
+        let keys = [
+            "title",
+            "titleView",
+            "leftBarButtonItem",
+            "leftBarButtonItems",
+            "rightBarButtonItem",
+            "rightBarButtonItems",
+            "hidesBackButton"
+        ]
+        
+        keys.forEach {
+            viewController.navigationItem.addObserver(self, forKeyPath: $0, options: .new, context: nil)
+        }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
