@@ -53,8 +53,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
 
-        let popupController = STPopupController(rootViewController: FirstController(a: 1))
-        popupController.containerView?.layer.cornerRadius = 4
+        let popupController = STPopupController(rootViewController: FirstController())
         popupController.present(in: self)
     }
 }

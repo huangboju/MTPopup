@@ -336,7 +336,7 @@ class STPopupController: NSObject {
         }
 
         defaultLeftBarItem.tintColor = navigationBar?.tintColor
-        defaultLeftBarItem.set(!viewControllers.isEmpty ? .arrow : .cross, animated: shouldAnimateDefaultLeftBarItem)
+        defaultLeftBarItem.set(viewControllers.count > 1 ? .arrow : .cross, animated: shouldAnimateDefaultLeftBarItem)
     }
 
     func set(navigationBarHidden: Bool, animated: Bool) {
@@ -429,6 +429,7 @@ class STPopupController: NSObject {
     func setupContainerView() {
         containerView = UIView()
         containerView?.backgroundColor = UIColor.white
+        containerView?.layer.cornerRadius = 4
         containerView?.clipsToBounds = true
         containerViewController?.view.addSubview(containerView!)
 

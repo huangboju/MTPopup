@@ -81,18 +81,21 @@ extension UIViewController {
         return controller?.presentingViewController
     }
 
+    static let screenW = UIScreen.main.bounds.width
+    static let screenH = UIScreen.main.bounds.height
+
     var contentSizeInPopup: CGSize {
         set {
             var value = newValue
             if value != .zero && value.width == 0 {
                 switch UIApplication.shared.statusBarOrientation {
                 case .landscapeLeft, .landscapeRight:
-                    value.width = UIScreen.main.bounds.height
+                    value.width = UIViewController.screenH
                 default:
-                    value.width = UIScreen.main.bounds.height
+                    value.width = UIViewController.screenW
                 }
             }
-  
+
             objc_setAssociatedObject(self, &AssociatedKeys.contentSizeInPopupKey, NSValue(cgSize: value), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
 
@@ -108,9 +111,9 @@ extension UIViewController {
             if value != .zero && value.width == 0 {
                 switch UIApplication.shared.statusBarOrientation {
                 case .landscapeLeft, .landscapeRight:
-                    value.width = UIScreen.main.bounds.width
+                    value.width = UIViewController.screenW
                 default:
-                    value.width = UIScreen.main.bounds.height
+                    value.width = UIViewController.screenH
                 }
             }
             objc_setAssociatedObject(self, &AssociatedKeys.landscapeContentSizeInPopupKey, NSValue(cgSize: value), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

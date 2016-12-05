@@ -11,11 +11,7 @@ enum STPopupLeftBarItemType {
 }
 
 class STPopupLeftBarItem: UIBarButtonItem {
-    var type: STPopupLeftBarItemType = .cross {
-        didSet {
-            set(type, animated: false)
-        }
-    }
+    var type: STPopupLeftBarItemType = .cross
 
     private lazy var bar1: UIView = {
         let bar1 = UIView()
@@ -43,6 +39,7 @@ class STPopupLeftBarItem: UIBarButtonItem {
     }
 
     func set(_ type: STPopupLeftBarItemType, animated: Bool) {
+        self.type = type
         if animated {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.updateLayout()
