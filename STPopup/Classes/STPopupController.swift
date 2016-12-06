@@ -38,6 +38,7 @@ class STPopupController: NSObject {
             backgroundView?.removeFromSuperview()
             newValue?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             newValue?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(bgViewDidTap)))
+
             containerViewController?.view.insertSubview(newValue!, at: 0)
         }
     }
@@ -245,6 +246,7 @@ class STPopupController: NSObject {
             UIGraphicsEndImageContext()
 
             capturedView.frame = CGRect(origin: contentView!.frame.origin, size: fromVC.view.bounds.size)
+
             containerView?.insertSubview(capturedView, at: 0)
 
             fromVC.view.removeFromSuperview()
@@ -253,7 +255,7 @@ class STPopupController: NSObject {
             toVC.view.alpha = 0
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.layoutContainerView()
-                self.containerView?.addSubview(toVC.view)
+                self.contentView?.addSubview(toVC.view)
                 capturedView.alpha = 0
                 toVC.view.alpha = 1
                 self.containerViewController?.setNeedsStatusBarAppearanceUpdate()
@@ -285,7 +287,7 @@ class STPopupController: NSObject {
     }
 
     func updateNavigationBar(animated: Bool) {
-        guard let defaultLeftBarItem = defaultLeftBarItem, let topViewController = topViewController else {
+        guard let topViewController = topViewController else {
             return
         }
         let shouldAnimateDefaultLeftBarItem = animated && navigationBar?.topItem?.leftBarButtonItem == defaultLeftBarItem
@@ -296,7 +298,7 @@ class STPopupController: NSObject {
             if topViewController.navigationItem.hidesBackButton {
                 topViewController.navigationItem.leftBarButtonItems = nil
             } else {
-                navigationBar?.topItem?.leftBarButtonItems = [defaultLeftBarItem]
+                navigationBar?.topItem?.leftBarButtonItems = [defaultLeftBarItem!]
             }
         }
         navigationBar?.topItem?.rightBarButtonItems = topViewController.navigationItem.rightBarButtonItems
@@ -348,8 +350,8 @@ class STPopupController: NSObject {
             }
         }
 
-        defaultLeftBarItem.tintColor = navigationBar?.tintColor
-        defaultLeftBarItem.set(viewControllers.count > 1 ? .arrow : .cross, animated: shouldAnimateDefaultLeftBarItem)
+        defaultLeftBarItem?.tintColor = navigationBar?.tintColor
+        defaultLeftBarItem?.set(viewControllers.count > 1 ? .arrow : .cross, animated: shouldAnimateDefaultLeftBarItem)
     }
 
     func set(navigationBarHidden: Bool, animated: Bool) {
@@ -374,6 +376,7 @@ class STPopupController: NSObject {
     }
 
     func layoutContainerView() {
+
         guard let containerViewController = containerViewController else { return }
 
         backgroundView?.frame = containerViewController.view.bounds
@@ -615,6 +618,8 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
         guard let fromVC = transitionContext.viewController(forKey: .from), let toVC = transitionContext.viewController(forKey: .to) else { return }
 
         toVC.view.frame = fromVC.view.frame
+        
+        let topViewController = self.topViewController
 
         let context = convert(transitionContext)
         var transitioning: STPopupControllerTransitioning?
@@ -655,7 +660,7 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
                 self.containerView?.isUserInteractionEnabled = true
 
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-                self.topViewController?.didMove(toParentViewController: toVC)
+                topViewController?.didMove(toParentViewController: toVC)
                 fromVC.endAppearanceTransition()
             })
         } else {
@@ -679,8 +684,8 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
                 fromVC.view.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
 
-                self.topViewController?.view.removeFromSuperview()
-                self.topViewController?.removeFromParentViewController()
+                topViewController?.view.removeFromSuperview()
+                topViewController?.removeFromParentViewController()
 
                 toVC.endAppearanceTransition()
 
