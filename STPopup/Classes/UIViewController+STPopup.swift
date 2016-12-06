@@ -130,7 +130,8 @@ extension UIViewController {
 
     var popupController: STPopupController? {
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.popupControllerKey, newValue!, .OBJC_ASSOCIATION_ASSIGN)
+            guard let newValue = newValue else { return }
+            objc_setAssociatedObject(self, &AssociatedKeys.popupControllerKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
 
         get {
