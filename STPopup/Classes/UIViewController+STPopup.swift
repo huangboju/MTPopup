@@ -8,16 +8,16 @@
 
 extension UIViewController {
     private struct AssociatedKeys {
-        static var landscapeContentSizeInPopupKey = "landscapeContentSizeInPopup"
-        static var contentSizeInPopupKey = "contentSizeInPopup"
-        static var popupControllerKey = "popupController"
+        static var landscapeContentSizeInPopupKey: String? = "landscapeContentSizeInPopup"
+        static var contentSizeInPopupKey: String? = "contentSizeInPopup"
+        static var popupControllerKey: String? = "popupController"
     }
 
     static let controllerOnceToken = UUID().uuidString
 
     open override class func initialize() {
         DispatchQueue.once(token: controllerOnceToken) {
-            let selectors = [
+            let selectors: [(Selector, Selector)] = [
                 (#selector(viewDidLoad), #selector(st_viewDidLoad)),
                 (#selector(present(_:animated:completion:)), #selector(st_present(_:animated:completion:))),
                 (#selector(dismiss(animated:completion:)), #selector(st_dismiss(animated:completion:))),
