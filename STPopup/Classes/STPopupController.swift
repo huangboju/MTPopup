@@ -168,7 +168,7 @@ class STPopupController: NSObject {
     }
 
     // MARK: - STPopupController present & dismiss & push & pop
-    lazy var retainedPopupControllers: Set<STPopupController> = []
+    var retainedPopupControllers: Set<STPopupController> = []
 
     func present(in viewController: UIViewController) {
         present(in: viewController, completion: nil)
@@ -195,8 +195,10 @@ class STPopupController: NSObject {
         destroyObservers()
 
         containerViewController?.dismiss(animated: true, completion: {
-            self.retainedPopupControllers.remove(self)
-            completion?()
+            _ = self.retainedPopupControllers.remove(self)
+            if let completion = completion {
+                completion()
+            }
         })
     }
 
@@ -618,7 +620,7 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
         guard let fromVC = transitionContext.viewController(forKey: .from), let toVC = transitionContext.viewController(forKey: .to) else { return }
 
         toVC.view.frame = fromVC.view.frame
-        
+
         let topViewController = self.topViewController
 
         let context = convert(transitionContext)
