@@ -6,7 +6,7 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class STPopupControllerTransitioningSlideVertical: NSObject, STPopupControllerTransitioning {
+class STPopupControllerTransitioningSlideVertical: STPopupControllerTransitioning {
 
     func popupControllerAnimateTransition(_ context: STPopupControllerTransitioningContext, completion: (() -> Void)?) {
         guard let containerView = context.containerView else { return }

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class STPopupControllerTransitioningFade: NSObject, STPopupControllerTransitioning {
+class STPopupControllerTransitioningFade: STPopupControllerTransitioning {
 
     func popupControllerAnimateTransition(_ context: STPopupControllerTransitioningContext, completion: (() -> Void)?) {
         let containerView = context.containerView

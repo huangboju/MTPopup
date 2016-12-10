@@ -6,12 +6,11 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class STPopupControllerTransitioningContext: NSObject {
+class STPopupControllerTransitioningContext {
     var action: STPopupControllerTransitioningAction = .present
     var containerView: UIView?
 
     init(containerView: UIView, action: STPopupControllerTransitioningAction) {
-        super.init()
         self.containerView = containerView
         self.action = action
     }
