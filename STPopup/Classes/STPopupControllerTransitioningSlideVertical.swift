@@ -6,7 +6,7 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class STPopupControllerTransitioningSlideVertical: STPopupControllerTransitioning {
+class STPopupControllerTransitioningSlideVertical: NSObject, STPopupControllerTransitioning {
 
     func popupControllerTransitionDuration(_ context: STPopupControllerTransitioningContext) -> TimeInterval {
         return context.action == .present ? 0.5 : 0.35

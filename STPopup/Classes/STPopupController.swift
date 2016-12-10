@@ -60,8 +60,8 @@ class STPopupController: NSObject {
     private var keyboardInfo: [String: Any]?
     private var observing = false
     fileprivate var contentView: UIView?
-    fileprivate var transitioningSlideVertical: STPopupControllerTransitioningSlideVertical?
-    fileprivate var transitioningFade: STPopupControllerTransitioningFade?
+    fileprivate var transitioningSlideVertical = STPopupControllerTransitioningSlideVertical()
+    fileprivate var transitioningFade = STPopupControllerTransitioningFade()
 
     override init() {
         super.init()
@@ -74,6 +74,7 @@ class STPopupController: NSObject {
     }
 
     deinit {
+        print("\(classForCoder)✅✅✅")
         destroyObservers()
         viewControllers.forEach {
             $0.popupController = nil
@@ -91,7 +92,7 @@ class STPopupController: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChange), name: .UIApplicationDidChangeStatusBarOrientation, object: nil)
 
         let keyboardShowing = #selector(keyboardWillShow)
-        let items = [
+        let items: [(Selector, Notification.Name)] = [
             (keyboardShowing, .UIKeyboardWillShow),
             (keyboardShowing, .UIKeyboardWillChangeFrame),
             (#selector(keyboardWillHide), .UIKeyboardWillHide),
@@ -438,8 +439,8 @@ class STPopupController: NSObject {
         setupContainerView()
         setupNavigationBar()
 
-        transitioningSlideVertical = STPopupControllerTransitioningSlideVertical()
-        transitioningFade = STPopupControllerTransitioningFade()
+//        transitioningSlideVertical = STPopupControllerTransitioningSlideVertical()
+//        transitioningFade = STPopupControllerTransitioningFade()
     }
 
     func setupBackgroundView() {
@@ -608,9 +609,9 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
         let context = convert(transitionContext)
         switch transitionStyle {
         case .slideVertical:
-            return transitioningSlideVertical!.popupControllerTransitionDuration(context)
+            return transitioningSlideVertical.popupControllerTransitionDuration(context)
         case .fade:
-            return transitioningFade!.popupControllerTransitionDuration(context)
+            return transitioningFade.popupControllerTransitionDuration(context)
         case .custom:
             return transitioning!.popupControllerTransitionDuration(context)
         }

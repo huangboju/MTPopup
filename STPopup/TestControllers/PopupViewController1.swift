@@ -11,7 +11,7 @@ import UIKit
 let scaleW = UIViewController.screenW / 320
 let scaleH = UIViewController.screenH / 568
 
-class FirstController: UIViewController {
+class PopupViewController1: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,11 @@ class FirstController: UIViewController {
     }
 
     func nextAction() {
-        popupController?.push(SecondController(), animated: true)
+        popupController?.push(PopupViewController2(), animated: true)
+    }
+
+    deinit {
+        print("\(classForCoder)✅✅")
     }
 
     override func didReceiveMemoryWarning() {

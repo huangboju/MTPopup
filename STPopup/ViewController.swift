@@ -11,14 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     fileprivate lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: self.view.frame, style: .grouped)
+        let tableView = UITableView(frame: self.view.bounds, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
     }()
 
-    lazy var controllers = [
-        FirstController.self
+    lazy var controllers: [UIViewController.Type] = [
+        PopupViewController1.self,
+        PopupViewController1.self,
+        BottomSheetController.self
     ]
 
     override func viewDidLoad() {
@@ -53,7 +55,15 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
 
-        let popupController = STPopupController(rootViewController: FirstController())
+        let popupController = STPopupController(rootViewController: controllers[indexPath.row].init())
+
+        if indexPath == IndexPath(row: 1, section: 0) {
+            let blurEffect = UIBlurEffect(style: .dark)
+            popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+            popupController.backgroundView?.alpha = 0.8
+        } else if indexPath == IndexPath(row: 2, section: 0) {
+            popupController.style = .bottomSheet
+        }
         popupController.present(in: self)
     }
 }

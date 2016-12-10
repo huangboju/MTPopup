@@ -1,20 +1,19 @@
 //
-//  SecondController.swift
+//  BottomSheetController.swift
 //  STPopup
 //
-//  Created by 伯驹 黄 on 2016/12/5.
+//  Created by 伯驹 黄 on 2016/12/10.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
 import UIKit
 
-class SecondController: UIViewController {
+class BottomSheetController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        contentSizeInPopup = CGSize(width: 300 * scaleW, height: 200 * scaleH)
-        landscapeContentSizeInPopup = CGSize(width: 400 * scaleH, height: 200 * scaleW)
+        contentSizeInPopup = CGSize(width: view.frame.width, height: 300)
     }
 
     override func didReceiveMemoryWarning() {
