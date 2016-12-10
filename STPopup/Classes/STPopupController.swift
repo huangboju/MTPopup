@@ -60,12 +60,23 @@ class STPopupController: NSObject {
     private var keyboardInfo: [String: Any]?
     private var observing = false
     fileprivate var contentView: UIView?
-    fileprivate var transitioningSlideVertical = STPopupControllerTransitioningSlideVertical()
-    fileprivate var transitioningFade = STPopupControllerTransitioningFade()
+    fileprivate let transitioningSlideVertical = STPopupControllerTransitioningSlideVertical()
+    fileprivate let transitioningFade = STPopupControllerTransitioningFade()
 
     override init() {
         super.init()
-        setup()
+
+        containerViewController = STPopupContainerViewController()
+        containerViewController?.view.backgroundColor = .clear
+
+        let flag = UIDevice.current.systemVersion.compare("8.0", options: .numeric) != .orderedAscending
+        containerViewController?.modalPresentationStyle = flag ? .overCurrentContext : .custom
+
+        containerViewController?.transitioningDelegate = self
+
+        setupBackgroundView()
+        setupContainerView()
+        setupNavigationBar()
     }
 
     convenience init(rootViewController: UIViewController) {
@@ -424,23 +435,6 @@ class STPopupController: NSObject {
     var preferredNavigationBarHeight: CGFloat {
         let navigationController = UINavigationController()
         return navigationController.navigationBar.bounds.height
-    }
-
-    func setup() {
-        containerViewController = STPopupContainerViewController()
-        containerViewController?.view.backgroundColor = .clear
-
-        let flag = UIDevice.current.systemVersion.compare("8.0", options: .numeric) != .orderedAscending
-        containerViewController?.modalPresentationStyle = flag ? .overCurrentContext : .custom
-
-        containerViewController?.transitioningDelegate = self
-
-        setupBackgroundView()
-        setupContainerView()
-        setupNavigationBar()
-
-//        transitioningSlideVertical = STPopupControllerTransitioningSlideVertical()
-//        transitioningFade = STPopupControllerTransitioningFade()
     }
 
     func setupBackgroundView() {
