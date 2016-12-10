@@ -8,10 +8,6 @@
 
 class STPopupControllerTransitioningFade: NSObject, STPopupControllerTransitioning {
 
-    func popupControllerTransitionDuration(_ context: STPopupControllerTransitioningContext) -> TimeInterval {
-        return context.action == .present ? 0.25 : 0.2
-    }
-
     func popupControllerAnimateTransition(_ context: STPopupControllerTransitioningContext, completion: (() -> Void)?) {
         let containerView = context.containerView
         let duration = popupControllerTransitionDuration(context)

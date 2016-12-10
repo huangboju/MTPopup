@@ -13,3 +13,13 @@ protocol STPopupControllerTransitioning {
      */
     func popupControllerAnimateTransition(_ context: STPopupControllerTransitioningContext, completion: (() -> Void)?)
 }
+
+extension STPopupControllerTransitioning {
+    func popupControllerTransitionDuration(_ context: STPopupControllerTransitioningContext) -> TimeInterval {
+        if self is STPopupControllerTransitioningFade {
+            return context.action == .present ? 0.25 : 0.2
+        } else {
+            return context.action == .present ? 0.5 : 0.35
+        }
+    }
+}

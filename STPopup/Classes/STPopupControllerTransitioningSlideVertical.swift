@@ -8,10 +8,6 @@
 
 class STPopupControllerTransitioningSlideVertical: NSObject, STPopupControllerTransitioning {
 
-    func popupControllerTransitionDuration(_ context: STPopupControllerTransitioningContext) -> TimeInterval {
-        return context.action == .present ? 0.5 : 0.35
-    }
-
     func popupControllerAnimateTransition(_ context: STPopupControllerTransitioningContext, completion: (() -> Void)?) {
         guard let containerView = context.containerView else { return }
         let duration = popupControllerTransitionDuration(context)
