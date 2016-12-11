@@ -49,7 +49,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.textLabel?.text = "\(controllers[indexPath.row].classForCoder)"
+        cell.textLabel?.text = "\(controllers[indexPath.row].classForCoder())"
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
