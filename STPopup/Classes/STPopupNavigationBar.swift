@@ -6,14 +6,14 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-protocol STPopupNavigationTouchEventDelegate {
+protocol STPopupNavigationTouchEventDelegate: class {
     func popup(_ navigationBar: STPopupNavigationBar, touchDidMoveWith offset: CGFloat)
     func popup(_ navigationBar: STPopupNavigationBar, touchDidEndWith offset: CGFloat)
 }
 
 class STPopupNavigationBar: UINavigationBar {
     var draggable = true
-    var touchEventDelegate: STPopupNavigationTouchEventDelegate?
+    weak var touchEventDelegate: STPopupNavigationTouchEventDelegate?
 
     private var moving = false
     private var movingStartY: CGFloat = 0

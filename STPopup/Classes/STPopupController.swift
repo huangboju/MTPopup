@@ -85,7 +85,6 @@ class STPopupController: NSObject {
     }
 
     deinit {
-        print("\(classForCoder)✅✅✅")
         destroyObservers()
         viewControllers.forEach {
             $0.popupController = nil

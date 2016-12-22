@@ -35,10 +35,6 @@ class PopupViewController1: UIViewController {
         popupController?.push(PopupViewController2(), animated: true)
     }
 
-    deinit {
-        print("\(classForCoder)✅✅")
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
