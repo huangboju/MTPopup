@@ -1,1 +1,1 @@
-# STPopup.swift
+# SwiftySTPopup
