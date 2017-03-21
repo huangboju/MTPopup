@@ -17,15 +17,15 @@ extension UIViewController {
 
     open override class func initialize() {
         DispatchQueue.once(token: controllerOnceToken) {
-            let selectors: [(Selector, Selector)] = [
-                (#selector(viewDidLoad), #selector(st_viewDidLoad)),
-                (#selector(present(_:animated:completion:)), #selector(st_present(_:animated:completion:))),
-                (#selector(dismiss(animated:completion:)), #selector(st_dismiss(animated:completion:))),
-                (#selector(getter: presentedViewController), #selector(getter: st_presentedViewController)),
-                (#selector(getter: presentingViewController), #selector(getter: st_presentingViewController))
+            let selectors: [Selector] = [
+                #selector(viewDidLoad),
+                #selector(present),
+                #selector(dismiss),
+                #selector(getter: presentedViewController),
+                #selector(getter: presentingViewController)
             ]
             selectors.forEach {
-                swizzle($0.0, to: $0.1)
+                swizzle($0, to: Selector("st_" + $0.description))
             }
         }
     }
@@ -54,9 +54,9 @@ extension UIViewController {
         st_viewDidLoad()
     }
 
-    func st_present(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?) {
+    func st_presentViewController(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?) {
         guard let popupController = popupController else {
-            st_present(viewControllerToPresent, animated: animated, completion: completion)
+            st_presentViewController(viewControllerToPresent, animated: animated, completion: completion)
             return
         }
 
@@ -64,9 +64,9 @@ extension UIViewController {
         controller?.present(viewControllerToPresent, animated: animated, completion: completion)
     }
 
-    func st_dismiss(animated: Bool, completion: (() -> Void)?) {
+    func st_dismissViewControllerAnimated(_ animated: Bool, completion: (() -> Void)?) {
         guard let popupController = popupController else {
-            st_dismiss(animated: animated, completion: completion)
+            st_dismissViewControllerAnimated(animated, completion: completion)
             return
         }
 

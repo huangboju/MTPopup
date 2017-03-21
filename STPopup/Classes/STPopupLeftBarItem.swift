@@ -20,6 +20,7 @@ class STPopupLeftBarItem: UIBarButtonItem {
         bar1.layer.allowsEdgeAntialiasing = true
         return bar1
     }()
+
     private lazy var bar2: UIView = {
         let bar2 = UIView()
         bar2.backgroundColor = UIColor(white: 0.4, alpha: 1)

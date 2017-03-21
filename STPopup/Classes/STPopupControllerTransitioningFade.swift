@@ -19,13 +19,13 @@ class STPopupControllerTransitioningFade: STPopupControllerTransitioning {
             UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
                 containerView?.alpha = 1
                 containerView?.transform = CGAffineTransform.identity
-            }, completion: { (flag) in
+            }, completion: { _ in
                 completion?()
             })
         } else {
             UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
                 containerView?.alpha = 0
-            }, completion: { (flag) in
+            }, completion: { _ in
                 containerView?.alpha = 1
                 completion?()
             })

@@ -27,11 +27,13 @@ class STPopupController: NSObject {
             set(navigationBarHidden: navigationBarHidden, animated: false)
         }
     }
+
     var hidesCloseButton = false {
         didSet {
             updateNavigationBar(animated: false)
         }
     }
+
     var navigationBar: STPopupNavigationBar?
     var backgroundView: UIView? {
         willSet {
@@ -42,10 +44,12 @@ class STPopupController: NSObject {
             containerViewController?.view.insertSubview(newValue!, at: 0)
         }
     }
+
     var containerView: UIView?
     var topViewController: UIViewController? {
         return viewControllers.last
     }
+
     var presented: Bool {
         return containerViewController!.presentingViewController != nil
     }
@@ -106,7 +110,7 @@ class STPopupController: NSObject {
             (keyboardShowing, .UIKeyboardWillShow),
             (keyboardShowing, .UIKeyboardWillChangeFrame),
             (#selector(keyboardWillHide), .UIKeyboardWillHide),
-            (#selector(firstResponderDidChange), STPopupFirstResponderDidChange)
+            (#selector(firstResponderDidChange), STPopupFirstResponderDidChange),
         ]
 
         items.forEach {
@@ -135,7 +139,7 @@ class STPopupController: NSObject {
             "leftBarButtonItems",
             "rightBarButtonItem",
             "rightBarButtonItems",
-            "hidesBackButton"
+            "hidesBackButton",
         ]
 
         keys.forEach {
@@ -154,7 +158,7 @@ class STPopupController: NSObject {
             "leftBarButtonItems",
             "rightBarButtonItem",
             "rightBarButtonItems",
-            "hidesBackButton"
+            "hidesBackButton",
         ]
 
         keys.forEach {
@@ -162,7 +166,7 @@ class STPopupController: NSObject {
         }
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath _: String?, of object: Any?, change _: [NSKeyValueChangeKey: Any]?, context _: UnsafeMutableRawPointer?) {
         let topViewController = self.topViewController!
         let condition = topViewController.isViewLoaded && topViewController.view.superview != nil
         if object is STPopupNavigationBar || object is UINavigationItem {
@@ -272,7 +276,7 @@ class STPopupController: NSObject {
                 capturedView.alpha = 0
                 toVC.view.alpha = 1
                 self.containerViewController?.setNeedsStatusBarAppearanceUpdate()
-            }, completion: { (flag) in
+            }, completion: { _ in
                 capturedView.removeFromSuperview()
                 fromVC.removeFromParentViewController()
 
@@ -383,7 +387,7 @@ class STPopupController: NSObject {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.navigationBar?.alpha = navigationBarHidden ? 0 : 1
             self.layoutContainerView()
-        }, completion: { flag in
+        }, completion: { _ in
             self.navigationBar?.isHidden = navigationBarHidden
         })
     }
@@ -480,7 +484,7 @@ class STPopupController: NSObject {
         containerView?.endEditing(true)
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.containerView?.alpha = 0
-        }, completion: { flag in
+        }, completion: { _ in
             self.layoutContainerView()
             UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.containerView?.alpha = 1
@@ -580,11 +584,11 @@ class STPopupController: NSObject {
 }
 
 extension STPopupController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented _: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
     }
 
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
     }
 }
@@ -692,7 +696,7 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
 }
 
 extension STPopupController: STPopupNavigationTouchEventDelegate {
-    func popup(_ navigationBar: STPopupNavigationBar, touchDidMoveWith offset: CGFloat) {
+    func popup(_: STPopupNavigationBar, touchDidMoveWith offset: CGFloat) {
         containerView?.endEditing(true)
         if style == .bottomSheet && offset < -STPopupBottomSheetExtraHeight {
             return
@@ -701,11 +705,11 @@ extension STPopupController: STPopupNavigationTouchEventDelegate {
         containerView?.transform = CGAffineTransform(translationX: 0, y: offset)
     }
 
-    func popup(_ navigationBar: STPopupNavigationBar, touchDidEndWith offset: CGFloat) {
+    func popup(_: STPopupNavigationBar, touchDidEndWith offset: CGFloat) {
         if offset > 150 {
             let transitionStyle = self.transitionStyle
             self.transitionStyle = .slideVertical
-            dismiss() {
+            dismiss {
                 self.transitionStyle = transitionStyle
             }
         } else {

@@ -23,11 +23,11 @@ class STPopupContainerViewController: UIViewController {
         return childViewControllers.last
     }
 
-    override func show(_ vc: UIViewController, sender: Any?) {
+    override func show(_ vc: UIViewController, sender _: Any?) {
         method(vc: vc)
     }
 
-    override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
+    override func showDetailViewController(_ vc: UIViewController, sender _: Any?) {
         method(vc: vc)
     }
 

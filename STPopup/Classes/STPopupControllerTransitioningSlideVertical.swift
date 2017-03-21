@@ -16,7 +16,7 @@ class STPopupControllerTransitioningSlideVertical: STPopupControllerTransitionin
 
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
                 containerView.transform = CGAffineTransform.identity
-            }, completion: { (flag) in
+            }, completion: { _ in
                 completion?()
             })
         } else {
@@ -27,7 +27,7 @@ class STPopupControllerTransitioningSlideVertical: STPopupControllerTransitionin
 
             UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
                 containerView.transform = CGAffineTransform(translationX: 0, y: containerView.superview!.bounds.height - originY + containerView.frame.height)
-            }, completion: { (flag) in
+            }, completion: { _ in
                 containerView.transform = CGAffineTransform.identity
                 completion?()
             })
