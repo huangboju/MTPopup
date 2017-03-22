@@ -8,36 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		D8198B301E825DFF00AC98DB /* MTPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = D8198B2E1E825DFF00AC98DB /* MTPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8198B451E825E2D00AC98DB /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B381E825E2D00AC98DB /* Array+Extensions.swift */; };
-		D8198B461E825E2D00AC98DB /* Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = D8198B391E825E2D00AC98DB /* Bridging.h */; };
-		D8198B471E825E2D00AC98DB /* STPopupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B3A1E825E2D00AC98DB /* STPopupContainerViewController.swift */; };
-		D8198B481E825E2D00AC98DB /* STPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B3B1E825E2D00AC98DB /* STPopupController.swift */; };
-		D8198B491E825E2D00AC98DB /* STPopupControllerTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B3C1E825E2D00AC98DB /* STPopupControllerTransitioning.swift */; };
-		D8198B4A1E825E2D00AC98DB /* STPopupControllerTransitioningContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B3D1E825E2D00AC98DB /* STPopupControllerTransitioningContext.swift */; };
-		D8198B4B1E825E2D00AC98DB /* STPopupControllerTransitioningFade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B3E1E825E2D00AC98DB /* STPopupControllerTransitioningFade.swift */; };
-		D8198B4C1E825E2D00AC98DB /* STPopupControllerTransitioningSlideVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B3F1E825E2D00AC98DB /* STPopupControllerTransitioningSlideVertical.swift */; };
-		D8198B4D1E825E2D00AC98DB /* STPopupLeftBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B401E825E2D00AC98DB /* STPopupLeftBarItem.swift */; };
-		D8198B4E1E825E2D00AC98DB /* STPopupNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B411E825E2D00AC98DB /* STPopupNavigationBar.swift */; };
-		D8198B4F1E825E2D00AC98DB /* UIResponder+STPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B421E825E2D00AC98DB /* UIResponder+STPopup.swift */; };
-		D8198B501E825E2D00AC98DB /* UIViewController+STPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B431E825E2D00AC98DB /* UIViewController+STPopup.swift */; };
+		D8198B911E82630300AC98DB /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B851E82630300AC98DB /* Array+Extensions.swift */; };
+		D8198B921E82630300AC98DB /* Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = D8198B861E82630300AC98DB /* Bridging.h */; };
+		D8198B931E82630300AC98DB /* STPopupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B871E82630300AC98DB /* STPopupContainerViewController.swift */; };
+		D8198B941E82630300AC98DB /* STPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B881E82630300AC98DB /* STPopupController.swift */; };
+		D8198B951E82630300AC98DB /* STPopupControllerTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B891E82630300AC98DB /* STPopupControllerTransitioning.swift */; };
+		D8198B961E82630300AC98DB /* STPopupControllerTransitioningContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8A1E82630300AC98DB /* STPopupControllerTransitioningContext.swift */; };
+		D8198B971E82630300AC98DB /* STPopupControllerTransitioningFade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8B1E82630300AC98DB /* STPopupControllerTransitioningFade.swift */; };
+		D8198B981E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8C1E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift */; };
+		D8198B991E82630300AC98DB /* STPopupLeftBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8D1E82630300AC98DB /* STPopupLeftBarItem.swift */; };
+		D8198B9A1E82630300AC98DB /* STPopupNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8E1E82630300AC98DB /* STPopupNavigationBar.swift */; };
+		D8198B9B1E82630300AC98DB /* UIResponder+STPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8F1E82630300AC98DB /* UIResponder+STPopup.swift */; };
+		D8198B9C1E82630300AC98DB /* UIViewController+STPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B901E82630300AC98DB /* UIViewController+STPopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D8198B2B1E825DFF00AC98DB /* MTPopup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTPopup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8198B2E1E825DFF00AC98DB /* MTPopup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPopup.h; sourceTree = "<group>"; };
 		D8198B2F1E825DFF00AC98DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8198B381E825E2D00AC98DB /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
-		D8198B391E825E2D00AC98DB /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
-		D8198B3A1E825E2D00AC98DB /* STPopupContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupContainerViewController.swift; sourceTree = "<group>"; };
-		D8198B3B1E825E2D00AC98DB /* STPopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupController.swift; sourceTree = "<group>"; };
-		D8198B3C1E825E2D00AC98DB /* STPopupControllerTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioning.swift; sourceTree = "<group>"; };
-		D8198B3D1E825E2D00AC98DB /* STPopupControllerTransitioningContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningContext.swift; sourceTree = "<group>"; };
-		D8198B3E1E825E2D00AC98DB /* STPopupControllerTransitioningFade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningFade.swift; sourceTree = "<group>"; };
-		D8198B3F1E825E2D00AC98DB /* STPopupControllerTransitioningSlideVertical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningSlideVertical.swift; sourceTree = "<group>"; };
-		D8198B401E825E2D00AC98DB /* STPopupLeftBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupLeftBarItem.swift; sourceTree = "<group>"; };
-		D8198B411E825E2D00AC98DB /* STPopupNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupNavigationBar.swift; sourceTree = "<group>"; };
-		D8198B421E825E2D00AC98DB /* UIResponder+STPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+STPopup.swift"; sourceTree = "<group>"; };
-		D8198B431E825E2D00AC98DB /* UIViewController+STPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STPopup.swift"; sourceTree = "<group>"; };
+		D8198B851E82630300AC98DB /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		D8198B861E82630300AC98DB /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		D8198B871E82630300AC98DB /* STPopupContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupContainerViewController.swift; sourceTree = "<group>"; };
+		D8198B881E82630300AC98DB /* STPopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupController.swift; sourceTree = "<group>"; };
+		D8198B891E82630300AC98DB /* STPopupControllerTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioning.swift; sourceTree = "<group>"; };
+		D8198B8A1E82630300AC98DB /* STPopupControllerTransitioningContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningContext.swift; sourceTree = "<group>"; };
+		D8198B8B1E82630300AC98DB /* STPopupControllerTransitioningFade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningFade.swift; sourceTree = "<group>"; };
+		D8198B8C1E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningSlideVertical.swift; sourceTree = "<group>"; };
+		D8198B8D1E82630300AC98DB /* STPopupLeftBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupLeftBarItem.swift; sourceTree = "<group>"; };
+		D8198B8E1E82630300AC98DB /* STPopupNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupNavigationBar.swift; sourceTree = "<group>"; };
+		D8198B8F1E82630300AC98DB /* UIResponder+STPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+STPopup.swift"; sourceTree = "<group>"; };
+		D8198B901E82630300AC98DB /* UIViewController+STPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STPopup.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,30 +70,31 @@
 		D8198B2D1E825DFF00AC98DB /* MTPopup */ = {
 			isa = PBXGroup;
 			children = (
-				D8198B361E825E2D00AC98DB /* Classes */,
+				D8198B841E82630300AC98DB /* Classes */,
 				D8198B2E1E825DFF00AC98DB /* MTPopup.h */,
 				D8198B2F1E825DFF00AC98DB /* Info.plist */,
 			);
 			path = MTPopup;
 			sourceTree = "<group>";
 		};
-		D8198B361E825E2D00AC98DB /* Classes */ = {
+		D8198B841E82630300AC98DB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D8198B381E825E2D00AC98DB /* Array+Extensions.swift */,
-				D8198B391E825E2D00AC98DB /* Bridging.h */,
-				D8198B3A1E825E2D00AC98DB /* STPopupContainerViewController.swift */,
-				D8198B3B1E825E2D00AC98DB /* STPopupController.swift */,
-				D8198B3C1E825E2D00AC98DB /* STPopupControllerTransitioning.swift */,
-				D8198B3D1E825E2D00AC98DB /* STPopupControllerTransitioningContext.swift */,
-				D8198B3E1E825E2D00AC98DB /* STPopupControllerTransitioningFade.swift */,
-				D8198B3F1E825E2D00AC98DB /* STPopupControllerTransitioningSlideVertical.swift */,
-				D8198B401E825E2D00AC98DB /* STPopupLeftBarItem.swift */,
-				D8198B411E825E2D00AC98DB /* STPopupNavigationBar.swift */,
-				D8198B421E825E2D00AC98DB /* UIResponder+STPopup.swift */,
-				D8198B431E825E2D00AC98DB /* UIViewController+STPopup.swift */,
+				D8198B851E82630300AC98DB /* Array+Extensions.swift */,
+				D8198B861E82630300AC98DB /* Bridging.h */,
+				D8198B871E82630300AC98DB /* STPopupContainerViewController.swift */,
+				D8198B881E82630300AC98DB /* STPopupController.swift */,
+				D8198B891E82630300AC98DB /* STPopupControllerTransitioning.swift */,
+				D8198B8A1E82630300AC98DB /* STPopupControllerTransitioningContext.swift */,
+				D8198B8B1E82630300AC98DB /* STPopupControllerTransitioningFade.swift */,
+				D8198B8C1E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift */,
+				D8198B8D1E82630300AC98DB /* STPopupLeftBarItem.swift */,
+				D8198B8E1E82630300AC98DB /* STPopupNavigationBar.swift */,
+				D8198B8F1E82630300AC98DB /* UIResponder+STPopup.swift */,
+				D8198B901E82630300AC98DB /* UIViewController+STPopup.swift */,
 			);
-			path = Classes;
+			name = Classes;
+			path = ../../Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,7 +104,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8198B461E825E2D00AC98DB /* Bridging.h in Headers */,
+				D8198B921E82630300AC98DB /* Bridging.h in Headers */,
 				D8198B301E825DFF00AC98DB /* MTPopup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,17 +177,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8198B4F1E825E2D00AC98DB /* UIResponder+STPopup.swift in Sources */,
-				D8198B4A1E825E2D00AC98DB /* STPopupControllerTransitioningContext.swift in Sources */,
-				D8198B481E825E2D00AC98DB /* STPopupController.swift in Sources */,
-				D8198B471E825E2D00AC98DB /* STPopupContainerViewController.swift in Sources */,
-				D8198B451E825E2D00AC98DB /* Array+Extensions.swift in Sources */,
-				D8198B4C1E825E2D00AC98DB /* STPopupControllerTransitioningSlideVertical.swift in Sources */,
-				D8198B4D1E825E2D00AC98DB /* STPopupLeftBarItem.swift in Sources */,
-				D8198B491E825E2D00AC98DB /* STPopupControllerTransitioning.swift in Sources */,
-				D8198B4E1E825E2D00AC98DB /* STPopupNavigationBar.swift in Sources */,
-				D8198B501E825E2D00AC98DB /* UIViewController+STPopup.swift in Sources */,
-				D8198B4B1E825E2D00AC98DB /* STPopupControllerTransitioningFade.swift in Sources */,
+				D8198B9B1E82630300AC98DB /* UIResponder+STPopup.swift in Sources */,
+				D8198B961E82630300AC98DB /* STPopupControllerTransitioningContext.swift in Sources */,
+				D8198B941E82630300AC98DB /* STPopupController.swift in Sources */,
+				D8198B931E82630300AC98DB /* STPopupContainerViewController.swift in Sources */,
+				D8198B911E82630300AC98DB /* Array+Extensions.swift in Sources */,
+				D8198B981E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift in Sources */,
+				D8198B991E82630300AC98DB /* STPopupLeftBarItem.swift in Sources */,
+				D8198B951E82630300AC98DB /* STPopupControllerTransitioning.swift in Sources */,
+				D8198B9A1E82630300AC98DB /* STPopupNavigationBar.swift in Sources */,
+				D8198B9C1E82630300AC98DB /* UIViewController+STPopup.swift in Sources */,
+				D8198B971E82630300AC98DB /* STPopupControllerTransitioningFade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +350,7 @@
 				D8198B351E825DFF00AC98DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

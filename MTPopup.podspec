@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.author       = { "huangboju" => "529940945@qq.com" }
   s.platform     = :ios,'8.0'
   s.source       = { :git => "https://github.com/huangboju/MTPopup.git", :tag => "#{s.version}" }
-  s.source_files  = "STPopup/Classes/**/*.swift"
+  s.source_files  = "MTPopup/Classes/**/*.swift"
   s.framework  = "UIKit"
   s.requires_arc = true
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
