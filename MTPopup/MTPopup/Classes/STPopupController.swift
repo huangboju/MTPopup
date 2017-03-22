@@ -170,11 +170,10 @@ class STPopupController: NSObject {
                 updateNavigationBar(animated: false)
             }
         } else if object is UIViewController {
-            if condition {
-                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-                    self.layoutContainerView()
-                }, completion: nil)
-            }
+            guard condition else { return }
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                self.layoutContainerView()
+            }, completion: nil)
         }
     }
 
@@ -207,9 +206,7 @@ class STPopupController: NSObject {
 
         containerViewController?.dismiss(animated: true, completion: {
             _ = self.retainedPopupControllers.remove(self)
-            if let completion = completion {
-                completion()
-            }
+            completion?()
         })
     }
 
@@ -528,9 +525,8 @@ class STPopupController: NSObject {
 
             if minY - offsetY < statusBarHeight {
                 offsetY = minY - statusBarHeight
-                if textFieldBottomY - offsetY > height {
-                    offsetY = textFieldBottomY - height
-                }
+                guard textFieldBottomY - offsetY > height else { return }
+                offsetY = textFieldBottomY - height
             }
         }
 
