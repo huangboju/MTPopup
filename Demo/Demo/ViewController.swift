@@ -9,14 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
     }()
-    
+
     lazy var controllers: [UIViewController.Type] = [
         PopupViewController1.self,
         PopupViewController1.self,

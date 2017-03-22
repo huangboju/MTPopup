@@ -1,17 +1,17 @@
 //
-//  STPopupLeftBarItem.swift
-//  STPopup
+//  MTPopupLeftBarItem.swift
+//  MTPopup
 //
 //  Created by 伯驹 黄 on 2016/11/4.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-enum STPopupLeftBarItemType {
+enum MTPopupLeftBarItemType {
     case cross, arrow
 }
 
-class STPopupLeftBarItem: UIBarButtonItem {
-    var type: STPopupLeftBarItemType = .cross
+class MTPopupLeftBarItem: UIBarButtonItem {
+    var type: MTPopupLeftBarItemType = .cross
 
     private lazy var bar1: UIView = {
         let bar1 = UIView()
@@ -39,7 +39,7 @@ class STPopupLeftBarItem: UIBarButtonItem {
         customView?.addSubview(bar2)
     }
 
-    func set(_ type: STPopupLeftBarItemType, animated: Bool) {
+    func set(_ type: MTPopupLeftBarItemType, animated: Bool) {
         self.type = type
         if animated {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {

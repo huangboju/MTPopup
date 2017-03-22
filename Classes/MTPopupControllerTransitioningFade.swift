@@ -1,14 +1,14 @@
 //
-//  STPopupControllerTransitioningFade.swift
-//  STPopup
+//  MTPopupControllerTransitioningFade.swift
+//  MTPopup
 //
 //  Created by 伯驹 黄 on 2016/11/4.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class STPopupControllerTransitioningFade: STPopupControllerTransitioning {
+class MTPopupControllerTransitioningFade: MTPopupControllerTransitioning {
 
-    func popupControllerAnimateTransition(_ context: STPopupControllerTransitioningContext, completion: (() -> Void)?) {
+    func popupControllerAnimateTransition(_ context: MTPopupControllerTransitioningContext, completion: (() -> Void)?) {
         let containerView = context.containerView
         let duration = popupControllerTransitionDuration(context)
 

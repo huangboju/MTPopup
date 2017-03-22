@@ -1,19 +1,19 @@
 //
-//  STPopupNavigationBar.swift
-//  STPopup
+//  MTPopupNavigationBar.swift
+//  MTPopup
 //
 //  Created by 伯驹 黄 on 2016/11/4.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-protocol STPopupNavigationTouchEventDelegate: class {
-    func popup(_ navigationBar: STPopupNavigationBar, touchDidMoveWith offset: CGFloat)
-    func popup(_ navigationBar: STPopupNavigationBar, touchDidEndWith offset: CGFloat)
+protocol MTPopupNavigationTouchEventDelegate: class {
+    func popup(_ navigationBar: MTPopupNavigationBar, touchDidMoveWith offset: CGFloat)
+    func popup(_ navigationBar: MTPopupNavigationBar, touchDidEndWith offset: CGFloat)
 }
 
-class STPopupNavigationBar: UINavigationBar {
+class MTPopupNavigationBar: UINavigationBar {
     var draggable = true
-    weak var touchEventDelegate: STPopupNavigationTouchEventDelegate?
+    weak var touchEventDelegate: MTPopupNavigationTouchEventDelegate?
 
     private var moving = false
     private var movingStartY: CGFloat = 0

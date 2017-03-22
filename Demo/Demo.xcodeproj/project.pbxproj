@@ -424,6 +424,7 @@
 				D8198B791E825E6A00AC98DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8198B7A1E825E6A00AC98DB /* Build configuration list for PBXNativeTarget "DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +433,7 @@
 				D8198B7C1E825E6A00AC98DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

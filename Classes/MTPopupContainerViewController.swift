@@ -1,12 +1,12 @@
 //
-//  STPopupContainerViewController.swift
-//  STPopup
+//  MTPopupContainerViewController.swift
+//  MTPopup
 //
 //  Created by 伯驹 黄 on 2016/11/6.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class STPopupContainerViewController: UIViewController {
+class MTPopupContainerViewController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         guard let presentingViewController = presentingViewController, !childViewControllers.isEmpty else {

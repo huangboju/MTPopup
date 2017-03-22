@@ -1,6 +1,6 @@
 //
-//  UIViewController+STPopup.swift
-//  STPopup
+//  UIViewController+MTPopup.swift
+//  MTPopup
 //
 //  Created by 伯驹 黄 on 2016/11/4.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
@@ -128,14 +128,14 @@ extension UIViewController {
         }
     }
 
-    var popupController: STPopupController? {
+    var popupController: MTPopupController? {
         set {
             guard let newValue = newValue else { return }
             objc_setAssociatedObject(self, &AssociatedKeys.popupControllerKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
 
         get {
-            let popupController = objc_getAssociatedObject(self, &AssociatedKeys.popupControllerKey) as? STPopupController
+            let popupController = objc_getAssociatedObject(self, &AssociatedKeys.popupControllerKey) as? MTPopupController
             guard let controller = popupController else {
                 return parent?.popupController
             }

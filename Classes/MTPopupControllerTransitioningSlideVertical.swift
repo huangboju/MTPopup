@@ -1,14 +1,14 @@
 //
-//  STPopupControllerTransitioningSlideVertical.swift
-//  STPopup
+//  MTPopupControllerTransitioningSlideVertical.swift
+//  MTPopup
 //
 //  Created by 伯驹 黄 on 2016/11/4.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class STPopupControllerTransitioningSlideVertical: STPopupControllerTransitioning {
+class MTPopupControllerTransitioningSlideVertical: MTPopupControllerTransitioning {
 
-    func popupControllerAnimateTransition(_ context: STPopupControllerTransitioningContext, completion: (() -> Void)?) {
+    func popupControllerAnimateTransition(_ context: MTPopupControllerTransitioningContext, completion: (() -> Void)?) {
         guard let containerView = context.containerView else { return }
         let duration = popupControllerTransitionDuration(context)
         if context.action == .present {

@@ -10,14 +10,14 @@
 		D8198B301E825DFF00AC98DB /* MTPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = D8198B2E1E825DFF00AC98DB /* MTPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8198B911E82630300AC98DB /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B851E82630300AC98DB /* Array+Extensions.swift */; };
 		D8198B921E82630300AC98DB /* Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = D8198B861E82630300AC98DB /* Bridging.h */; };
-		D8198B931E82630300AC98DB /* STPopupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B871E82630300AC98DB /* STPopupContainerViewController.swift */; };
-		D8198B941E82630300AC98DB /* STPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B881E82630300AC98DB /* STPopupController.swift */; };
-		D8198B951E82630300AC98DB /* STPopupControllerTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B891E82630300AC98DB /* STPopupControllerTransitioning.swift */; };
-		D8198B961E82630300AC98DB /* STPopupControllerTransitioningContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8A1E82630300AC98DB /* STPopupControllerTransitioningContext.swift */; };
-		D8198B971E82630300AC98DB /* STPopupControllerTransitioningFade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8B1E82630300AC98DB /* STPopupControllerTransitioningFade.swift */; };
-		D8198B981E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8C1E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift */; };
-		D8198B991E82630300AC98DB /* STPopupLeftBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8D1E82630300AC98DB /* STPopupLeftBarItem.swift */; };
-		D8198B9A1E82630300AC98DB /* STPopupNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8E1E82630300AC98DB /* STPopupNavigationBar.swift */; };
+		D8198B931E82630300AC98DB /* MTPopupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B871E82630300AC98DB /* MTPopupContainerViewController.swift */; };
+		D8198B941E82630300AC98DB /* MTPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B881E82630300AC98DB /* MTPopupController.swift */; };
+		D8198B951E82630300AC98DB /* MTPopupControllerTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B891E82630300AC98DB /* MTPopupControllerTransitioning.swift */; };
+		D8198B961E82630300AC98DB /* MTPopupControllerTransitioningContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8A1E82630300AC98DB /* MTPopupControllerTransitioningContext.swift */; };
+		D8198B971E82630300AC98DB /* MTPopupControllerTransitioningFade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8B1E82630300AC98DB /* MTPopupControllerTransitioningFade.swift */; };
+		D8198B981E82630300AC98DB /* MTPopupControllerTransitioningSlideVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8C1E82630300AC98DB /* MTPopupControllerTransitioningSlideVertical.swift */; };
+		D8198B991E82630300AC98DB /* MTPopupLeftBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8D1E82630300AC98DB /* MTPopupLeftBarItem.swift */; };
+		D8198B9A1E82630300AC98DB /* MTPopupNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8E1E82630300AC98DB /* MTPopupNavigationBar.swift */; };
 		D8198B9B1E82630300AC98DB /* UIResponder+STPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B8F1E82630300AC98DB /* UIResponder+STPopup.swift */; };
 		D8198B9C1E82630300AC98DB /* UIViewController+STPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B901E82630300AC98DB /* UIViewController+STPopup.swift */; };
 /* End PBXBuildFile section */
@@ -28,14 +28,14 @@
 		D8198B2F1E825DFF00AC98DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8198B851E82630300AC98DB /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		D8198B861E82630300AC98DB /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
-		D8198B871E82630300AC98DB /* STPopupContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupContainerViewController.swift; sourceTree = "<group>"; };
-		D8198B881E82630300AC98DB /* STPopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupController.swift; sourceTree = "<group>"; };
-		D8198B891E82630300AC98DB /* STPopupControllerTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioning.swift; sourceTree = "<group>"; };
-		D8198B8A1E82630300AC98DB /* STPopupControllerTransitioningContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningContext.swift; sourceTree = "<group>"; };
-		D8198B8B1E82630300AC98DB /* STPopupControllerTransitioningFade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningFade.swift; sourceTree = "<group>"; };
-		D8198B8C1E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupControllerTransitioningSlideVertical.swift; sourceTree = "<group>"; };
-		D8198B8D1E82630300AC98DB /* STPopupLeftBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupLeftBarItem.swift; sourceTree = "<group>"; };
-		D8198B8E1E82630300AC98DB /* STPopupNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPopupNavigationBar.swift; sourceTree = "<group>"; };
+		D8198B871E82630300AC98DB /* MTPopupContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopupContainerViewController.swift; sourceTree = "<group>"; };
+		D8198B881E82630300AC98DB /* MTPopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopupController.swift; sourceTree = "<group>"; };
+		D8198B891E82630300AC98DB /* MTPopupControllerTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopupControllerTransitioning.swift; sourceTree = "<group>"; };
+		D8198B8A1E82630300AC98DB /* MTPopupControllerTransitioningContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopupControllerTransitioningContext.swift; sourceTree = "<group>"; };
+		D8198B8B1E82630300AC98DB /* MTPopupControllerTransitioningFade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopupControllerTransitioningFade.swift; sourceTree = "<group>"; };
+		D8198B8C1E82630300AC98DB /* MTPopupControllerTransitioningSlideVertical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopupControllerTransitioningSlideVertical.swift; sourceTree = "<group>"; };
+		D8198B8D1E82630300AC98DB /* MTPopupLeftBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopupLeftBarItem.swift; sourceTree = "<group>"; };
+		D8198B8E1E82630300AC98DB /* MTPopupNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopupNavigationBar.swift; sourceTree = "<group>"; };
 		D8198B8F1E82630300AC98DB /* UIResponder+STPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+STPopup.swift"; sourceTree = "<group>"; };
 		D8198B901E82630300AC98DB /* UIViewController+STPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STPopup.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,14 +82,14 @@
 			children = (
 				D8198B851E82630300AC98DB /* Array+Extensions.swift */,
 				D8198B861E82630300AC98DB /* Bridging.h */,
-				D8198B871E82630300AC98DB /* STPopupContainerViewController.swift */,
-				D8198B881E82630300AC98DB /* STPopupController.swift */,
-				D8198B891E82630300AC98DB /* STPopupControllerTransitioning.swift */,
-				D8198B8A1E82630300AC98DB /* STPopupControllerTransitioningContext.swift */,
-				D8198B8B1E82630300AC98DB /* STPopupControllerTransitioningFade.swift */,
-				D8198B8C1E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift */,
-				D8198B8D1E82630300AC98DB /* STPopupLeftBarItem.swift */,
-				D8198B8E1E82630300AC98DB /* STPopupNavigationBar.swift */,
+				D8198B871E82630300AC98DB /* MTPopupContainerViewController.swift */,
+				D8198B881E82630300AC98DB /* MTPopupController.swift */,
+				D8198B891E82630300AC98DB /* MTPopupControllerTransitioning.swift */,
+				D8198B8A1E82630300AC98DB /* MTPopupControllerTransitioningContext.swift */,
+				D8198B8B1E82630300AC98DB /* MTPopupControllerTransitioningFade.swift */,
+				D8198B8C1E82630300AC98DB /* MTPopupControllerTransitioningSlideVertical.swift */,
+				D8198B8D1E82630300AC98DB /* MTPopupLeftBarItem.swift */,
+				D8198B8E1E82630300AC98DB /* MTPopupNavigationBar.swift */,
 				D8198B8F1E82630300AC98DB /* UIResponder+STPopup.swift */,
 				D8198B901E82630300AC98DB /* UIViewController+STPopup.swift */,
 			);
@@ -178,16 +178,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8198B9B1E82630300AC98DB /* UIResponder+STPopup.swift in Sources */,
-				D8198B961E82630300AC98DB /* STPopupControllerTransitioningContext.swift in Sources */,
-				D8198B941E82630300AC98DB /* STPopupController.swift in Sources */,
-				D8198B931E82630300AC98DB /* STPopupContainerViewController.swift in Sources */,
+				D8198B961E82630300AC98DB /* MTPopupControllerTransitioningContext.swift in Sources */,
+				D8198B941E82630300AC98DB /* MTPopupController.swift in Sources */,
+				D8198B931E82630300AC98DB /* MTPopupContainerViewController.swift in Sources */,
 				D8198B911E82630300AC98DB /* Array+Extensions.swift in Sources */,
-				D8198B981E82630300AC98DB /* STPopupControllerTransitioningSlideVertical.swift in Sources */,
-				D8198B991E82630300AC98DB /* STPopupLeftBarItem.swift in Sources */,
-				D8198B951E82630300AC98DB /* STPopupControllerTransitioning.swift in Sources */,
-				D8198B9A1E82630300AC98DB /* STPopupNavigationBar.swift in Sources */,
+				D8198B981E82630300AC98DB /* MTPopupControllerTransitioningSlideVertical.swift in Sources */,
+				D8198B991E82630300AC98DB /* MTPopupLeftBarItem.swift in Sources */,
+				D8198B951E82630300AC98DB /* MTPopupControllerTransitioning.swift in Sources */,
+				D8198B9A1E82630300AC98DB /* MTPopupNavigationBar.swift in Sources */,
 				D8198B9C1E82630300AC98DB /* UIViewController+STPopup.swift in Sources */,
-				D8198B971E82630300AC98DB /* STPopupControllerTransitioningFade.swift in Sources */,
+				D8198B971E82630300AC98DB /* MTPopupControllerTransitioningFade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

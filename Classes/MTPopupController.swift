@@ -1,27 +1,27 @@
 //
-//  STPopupController.swift
-//  STPopup
+//  MTPopupController.swift
+//  MTPopup
 //
 //  Created by 伯驹 黄 on 2016/11/4.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-enum STPopupControllerTransitioningAction {
+enum MTPopupControllerTransitioningAction {
     case present, dismiss
 }
 
-enum STPopupStyle {
+public enum MTPopupStyle {
     case formSheet, bottomSheet
 }
 
-enum STPopupTransitionStyle {
+public enum MTPopupTransitionStyle {
     case slideVertical, fade, custom
 }
 
-class STPopupController: NSObject {
-    var style: STPopupStyle?
-    var transitionStyle = STPopupTransitionStyle.slideVertical
-    var transitioning: STPopupControllerTransitioning?
+public class MTPopupController: NSObject {
+    var style: MTPopupStyle?
+    var transitionStyle = MTPopupTransitionStyle.slideVertical
+    var transitioning: MTPopupControllerTransitioning?
     var navigationBarHidden = false {
         didSet {
             set(navigationBarHidden: navigationBarHidden, animated: false)
@@ -32,7 +32,7 @@ class STPopupController: NSObject {
             updateNavigationBar(animated: false)
         }
     }
-    var navigationBar: STPopupNavigationBar?
+    var navigationBar: MTPopupNavigationBar?
     var backgroundView: UIView? {
         willSet {
             backgroundView?.removeFromSuperview()
@@ -50,23 +50,23 @@ class STPopupController: NSObject {
         return containerViewController!.presentingViewController != nil
     }
 
-    var containerViewController: STPopupContainerViewController?
+    var containerViewController: MTPopupContainerViewController?
 
-    fileprivate let STPopupBottomSheetExtraHeight: CGFloat = 80
+    fileprivate let MTPopupBottomSheetExtraHeight: CGFloat = 80
 
     private var viewControllers: [UIViewController] = []
     private var defaultTitleLabel: UILabel?
-    private var defaultLeftBarItem: STPopupLeftBarItem?
+    private var defaultLeftBarItem: MTPopupLeftBarItem?
     private var keyboardInfo: [String: Any]?
     private var observing = false
     fileprivate var contentView: UIView?
-    fileprivate let transitioningSlideVertical = STPopupControllerTransitioningSlideVertical()
-    fileprivate let transitioningFade = STPopupControllerTransitioningFade()
+    fileprivate let transitioningSlideVertical = MTPopupControllerTransitioningSlideVertical()
+    fileprivate let transitioningFade = MTPopupControllerTransitioningFade()
 
     override init() {
         super.init()
 
-        containerViewController = STPopupContainerViewController()
+        containerViewController = MTPopupContainerViewController()
         containerViewController?.view.backgroundColor = .clear
 
         let flag = UIDevice.current.systemVersion.compare("8.0", options: .numeric) != .orderedAscending
@@ -106,7 +106,7 @@ class STPopupController: NSObject {
             (keyboardShowing, .UIKeyboardWillShow),
             (keyboardShowing, .UIKeyboardWillChangeFrame),
             (#selector(keyboardWillHide), .UIKeyboardWillHide),
-            (#selector(firstResponderDidChange), STPopupFirstResponderDidChange)
+            (#selector(firstResponderDidChange), MTPopupFirstResponderDidChange)
         ]
 
         items.forEach {
@@ -162,10 +162,10 @@ class STPopupController: NSObject {
         }
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         let topViewController = self.topViewController!
         let condition = topViewController.isViewLoaded && topViewController.view.superview != nil
-        if object is STPopupNavigationBar || object is UINavigationItem {
+        if object is MTPopupNavigationBar || object is UINavigationItem {
             if condition {
                 updateNavigationBar(animated: false)
             }
@@ -177,14 +177,14 @@ class STPopupController: NSObject {
         }
     }
 
-    // MARK: - STPopupController present & dismiss & push & pop
-    var retainedPopupControllers: Set<STPopupController> = []
+    // MARK: - MTPopupController present & dismiss & push & pop
+    var retainedPopupControllers: Set<MTPopupController> = []
 
-    func present(in viewController: UIViewController) {
+    public func present(in viewController: UIViewController) {
         present(in: viewController, completion: nil)
     }
 
-    func present(in viewController: UIViewController, completion: (() -> Void)?) {
+    public func present(in viewController: UIViewController, completion: (() -> Void)?) {
         if presented { return }
 
         setupObservers()
@@ -195,11 +195,11 @@ class STPopupController: NSObject {
         controller.present(containerViewController!, animated: true, completion: completion)
     }
 
-    func dismiss() {
+    public func dismiss() {
         dismiss(with: nil)
     }
 
-    func dismiss(with completion: (() -> Void)?) {
+    public func dismiss(with completion: (() -> Void)?) {
         if !presented { return }
 
         destroyObservers()
@@ -210,7 +210,7 @@ class STPopupController: NSObject {
         })
     }
 
-    func push(_ viewController: UIViewController, animated: Bool) {
+    public func push(_ viewController: UIViewController, animated: Bool) {
         let topViewController = self.topViewController
 
         viewController.popupController = self
@@ -224,7 +224,7 @@ class STPopupController: NSObject {
         setupObservers(for: viewController)
     }
 
-    func popViewController(_ animated: Bool) {
+    public func popViewController(_ animated: Bool) {
         if viewControllers.count <= 1 {
             dismiss()
             return
@@ -398,7 +398,7 @@ class STPopupController: NSObject {
 
         if style == .bottomSheet {
             containerViewY = containerViewController.view.bounds.height - containerViewHeight
-            containerViewHeight += STPopupBottomSheetExtraHeight
+            containerViewHeight += MTPopupBottomSheetExtraHeight
         }
 
         containerView?.frame = CGRect(x: (containerViewController.view.bounds.width - containerViewWidth) / 2, y: containerViewY, width: containerViewWidth, height: containerViewHeight)
@@ -450,13 +450,13 @@ class STPopupController: NSObject {
     }
 
     func setupNavigationBar() {
-        navigationBar = STPopupNavigationBar()
+        navigationBar = MTPopupNavigationBar()
         navigationBar?.touchEventDelegate = self
 
         containerView?.addSubview(navigationBar!)
 
         defaultTitleLabel = UILabel()
-        defaultLeftBarItem = STPopupLeftBarItem(with: self, action: #selector(leftBarItemDidTap))
+        defaultLeftBarItem = MTPopupLeftBarItem(with: self, action: #selector(leftBarItemDidTap))
     }
 
     func leftBarItemDidTap() {
@@ -569,32 +569,32 @@ class STPopupController: NSObject {
         return nil
     }
 
-    // MARK: - STPopupFirstResponderDidChangeNotification
+    // MARK: - MTPopupFirstResponderDidChangeNotification
     func firstResponderDidChange() {
         adjustContainerViewOrigin()
     }
 }
 
-extension STPopupController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+extension MTPopupController: UIViewControllerTransitioningDelegate {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
     }
 
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
     }
 }
 
-extension STPopupController: UIViewControllerAnimatedTransitioning {
-    func convert(_ transitioningContext: UIViewControllerContextTransitioning?) -> STPopupControllerTransitioningContext {
-        var action: STPopupControllerTransitioningAction = .present
+extension MTPopupController: UIViewControllerAnimatedTransitioning {
+    func convert(_ transitioningContext: UIViewControllerContextTransitioning?) -> MTPopupControllerTransitioningContext {
+        var action: MTPopupControllerTransitioningAction = .present
         if transitioningContext?.viewController(forKey: .to) != containerViewController {
             action = .dismiss
         }
-        return STPopupControllerTransitioningContext(containerView: containerView!, action: action)
+        return MTPopupControllerTransitioningContext(containerView: containerView!, action: action)
     }
 
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         let context = convert(transitionContext)
         switch transitionStyle {
         case .slideVertical:
@@ -606,7 +606,7 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
         }
     }
 
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewController(forKey: .from), let toVC = transitionContext.viewController(forKey: .to) else { return }
 
         toVC.view.frame = fromVC.view.frame
@@ -614,7 +614,7 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
         let topViewController = self.topViewController
 
         let context = convert(transitionContext)
-        var transitioning: STPopupControllerTransitioning?
+        var transitioning: MTPopupControllerTransitioning?
         switch transitionStyle {
         case .slideVertical:
             transitioning = transitioningSlideVertical
@@ -687,17 +687,17 @@ extension STPopupController: UIViewControllerAnimatedTransitioning {
     }
 }
 
-extension STPopupController: STPopupNavigationTouchEventDelegate {
-    func popup(_ navigationBar: STPopupNavigationBar, touchDidMoveWith offset: CGFloat) {
+extension MTPopupController: MTPopupNavigationTouchEventDelegate {
+    func popup(_ navigationBar: MTPopupNavigationBar, touchDidMoveWith offset: CGFloat) {
         containerView?.endEditing(true)
-        if style == .bottomSheet && offset < -STPopupBottomSheetExtraHeight {
+        if style == .bottomSheet && offset < -MTPopupBottomSheetExtraHeight {
             return
         }
 
         containerView?.transform = CGAffineTransform(translationX: 0, y: offset)
     }
 
-    func popup(_ navigationBar: STPopupNavigationBar, touchDidEndWith offset: CGFloat) {
+    func popup(_ navigationBar: MTPopupNavigationBar, touchDidEndWith offset: CGFloat) {
         if offset > 150 {
             let transitionStyle = self.transitionStyle
             self.transitionStyle = .slideVertical

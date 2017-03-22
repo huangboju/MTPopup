@@ -1,12 +1,12 @@
 //
-//  UIResponder+STPopup.swift
-//  STPopup
+//  UIResponder+MTPopup.swift
+//  MTPopup
 //
 //  Created by 伯驹 黄 on 2016/11/4.
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-let STPopupFirstResponderDidChange = Notification.Name(rawValue: "STPopupFirstResponderDidChange")
+let MTPopupFirstResponderDidChange = Notification.Name(rawValue: "MTPopupFirstResponderDidChange")
 
 extension UIResponder {
 
@@ -28,7 +28,7 @@ extension UIResponder {
     func st_becomeFirstResponder() -> Bool {
         let accepted = st_becomeFirstResponder()
         if accepted {
-            NotificationCenter.default.post(name: STPopupFirstResponderDidChange, object: self)
+            NotificationCenter.default.post(name: MTPopupFirstResponderDidChange, object: self)
         }
         return accepted
     }
