@@ -16,6 +16,8 @@
 		D8198B811E825ED400AC98DB /* BottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B7E1E825ED400AC98DB /* BottomSheetController.swift */; };
 		D8198B821E825ED400AC98DB /* PopupViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B7F1E825ED400AC98DB /* PopupViewController1.swift */; };
 		D8198B831E825ED400AC98DB /* PopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8198B801E825ED400AC98DB /* PopupViewController2.swift */; };
+		D8E580611E826CE900F87262 /* MTPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E5805F1E826CE300F87262 /* MTPopup.framework */; };
+		D8E580621E826CE900F87262 /* MTPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8E5805F1E826CE300F87262 /* MTPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,20 @@
 			remoteInfo = Demo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8E580631E826CE900F87262 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D8E580621E826CE900F87262 /* MTPopup.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D8198B5A1E825E6A00AC98DB /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +58,7 @@
 		D8198B7E1E825ED400AC98DB /* BottomSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetController.swift; sourceTree = "<group>"; };
 		D8198B7F1E825ED400AC98DB /* PopupViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController1.swift; sourceTree = "<group>"; };
 		D8198B801E825ED400AC98DB /* PopupViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController2.swift; sourceTree = "<group>"; };
+		D8E5805F1E826CE300F87262 /* MTPopup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MTPopup.framework; path = ../MTPopup/Carthage/Build/iOS/MTPopup.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E580611E826CE900F87262 /* MTPopup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +86,7 @@
 				D8198B5C1E825E6A00AC98DB /* Demo */,
 				D8198B711E825E6A00AC98DB /* DemoUITests */,
 				D8198B5B1E825E6A00AC98DB /* Products */,
+				D8E5805E1E826CE200F87262 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +132,14 @@
 			path = TestControllers;
 			sourceTree = "<group>";
 		};
+		D8E5805E1E826CE200F87262 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8E5805F1E826CE300F87262 /* MTPopup.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +150,7 @@
 				D8198B561E825E6A00AC98DB /* Sources */,
 				D8198B571E825E6A00AC98DB /* Frameworks */,
 				D8198B581E825E6A00AC98DB /* Resources */,
+				D8E580631E826CE900F87262 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
