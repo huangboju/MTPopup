@@ -6,9 +6,10 @@
 
 # Installtion
 
-* cocoapods
+* ### Cocoapods
+
 'pod MTPopup'
 
-* Carthage
+* ### Carthage
 
 'github "huangboju/MTPopup"'
