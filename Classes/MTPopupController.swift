@@ -50,7 +50,7 @@ public class MTPopupController: NSObject {
         return containerViewController!.presentingViewController != nil
     }
 
-    fileprivate var containerViewController: MTPopupContainerViewController?
+    public var containerViewController: MTPopupContainerViewController?
 
     fileprivate let MTPopupBottomSheetExtraHeight: CGFloat = 80
 

@@ -6,28 +6,28 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class MTPopupContainerViewController: UIViewController {
+public class MTPopupContainerViewController: UIViewController {
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
         guard let presentingViewController = presentingViewController, !childViewControllers.isEmpty else {
             return super.preferredStatusBarStyle
         }
         return presentingViewController.preferredStatusBarStyle
     }
 
-    override var childViewControllerForStatusBarHidden: UIViewController? {
+    override public var childViewControllerForStatusBarHidden: UIViewController? {
         return childViewControllers.last
     }
 
-    override var childViewControllerForStatusBarStyle: UIViewController? {
+    override public var childViewControllerForStatusBarStyle: UIViewController? {
         return childViewControllers.last
     }
 
-    override func show(_ vc: UIViewController, sender _: Any?) {
+    override public func show(_ vc: UIViewController, sender _: Any?) {
         method(vc: vc)
     }
 
-    override func showDetailViewController(_ vc: UIViewController, sender _: Any?) {
+    override public func showDetailViewController(_ vc: UIViewController, sender _: Any?) {
         method(vc: vc)
     }
 

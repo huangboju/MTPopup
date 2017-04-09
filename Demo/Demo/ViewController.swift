@@ -23,14 +23,14 @@ class ViewController: UIViewController {
         PopupViewController1.self,
         BottomSheetController.self
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "MTPopupController"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,14 +41,14 @@ extension ViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return controllers.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     }
 }
 
 extension ViewController: UITableViewDelegate {
-    
+
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.textLabel?.text = "\(controllers[indexPath.row].classForCoder())"
     }
