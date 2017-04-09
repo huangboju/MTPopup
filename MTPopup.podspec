@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MTPopup"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "You will like it"
   s.homepage     = "https://github.com/huangboju/MTPopup"
   s.license      = "MIT"
