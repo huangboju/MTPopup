@@ -8,8 +8,8 @@
 
 * ### Cocoapods
 
-'pod MTPopup'
+`pod MTPopup`
 
 * ### Carthage
 
-'github "huangboju/MTPopup"'
+`github "huangboju/MTPopup"`
