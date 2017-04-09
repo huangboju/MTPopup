@@ -8,8 +8,8 @@
 
 import UIKit
 
-let scaleW = UIViewController.screenW / 320
-let scaleH = UIViewController.screenH / 568
+let scaleW = UIScreen.main.bounds.width / 320
+let scaleH = UIScreen.main.bounds.height / 568
 
 class PopupViewController1: UIViewController {
 

@@ -11,14 +11,14 @@ protocol MTPopupNavigationTouchEventDelegate: class {
     func popup(_ navigationBar: MTPopupNavigationBar, touchDidEndWith offset: CGFloat)
 }
 
-class MTPopupNavigationBar: UINavigationBar {
+public class MTPopupNavigationBar: UINavigationBar {
     var draggable = true
     weak var touchEventDelegate: MTPopupNavigationTouchEventDelegate?
 
     private var moving = false
     private var movingStartY: CGFloat = 0
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !draggable {
             super.touchesBegan(touches, with: event)
             return
@@ -30,7 +30,7 @@ class MTPopupNavigationBar: UINavigationBar {
         }
     }
 
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !draggable {
             super.touchesMoved(touches, with: event)
             return
@@ -43,7 +43,7 @@ class MTPopupNavigationBar: UINavigationBar {
         }
     }
 
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !draggable {
             super.touchesCancelled(touches, with: event)
             return
@@ -56,7 +56,7 @@ class MTPopupNavigationBar: UINavigationBar {
         }
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !draggable {
             super.touchesEnded(touches, with: event)
             return

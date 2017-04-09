@@ -6,7 +6,7 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-class MTPopupControllerTransitioningContext {
+public class MTPopupControllerTransitioningContext {
     var action: MTPopupControllerTransitioningAction = .present
     var containerView: UIView?
 

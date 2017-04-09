@@ -89,7 +89,7 @@ extension UIViewController {
     static let screenW = UIScreen.main.bounds.width
     static let screenH = UIScreen.main.bounds.height
 
-    var contentSizeInPopup: CGSize {
+    public var contentSizeInPopup: CGSize {
         set {
             var value = newValue
             if value != .zero && value.width == 0 {
@@ -109,7 +109,7 @@ extension UIViewController {
         }
     }
 
-    var landscapeContentSizeInPopup: CGSize {
+    public var landscapeContentSizeInPopup: CGSize {
         set {
             var value = newValue
             if value != .zero && value.width == 0 {
@@ -128,7 +128,7 @@ extension UIViewController {
         }
     }
 
-    var popupController: MTPopupController? {
+    public var popupController: MTPopupController? {
         set {
             guard let newValue = newValue else { return }
             objc_setAssociatedObject(self, &AssociatedKeys.popupControllerKey, newValue, .OBJC_ASSOCIATION_ASSIGN)

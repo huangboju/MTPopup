@@ -19,21 +19,21 @@ public enum MTPopupTransitionStyle {
 }
 
 public class MTPopupController: NSObject {
-    var style: MTPopupStyle?
-    var transitionStyle = MTPopupTransitionStyle.slideVertical
-    var transitioning: MTPopupControllerTransitioning?
-    var navigationBarHidden = false {
+    public var style: MTPopupStyle = .formSheet
+    public var transitionStyle = MTPopupTransitionStyle.slideVertical
+    public var transitioning: MTPopupControllerTransitioning?
+    public var navigationBarHidden = false {
         didSet {
             set(navigationBarHidden: navigationBarHidden, animated: false)
         }
     }
-    var hidesCloseButton = false {
+    public var hidesCloseButton = false {
         didSet {
             updateNavigationBar(animated: false)
         }
     }
-    var navigationBar: MTPopupNavigationBar?
-    var backgroundView: UIView? {
+    public var navigationBar: MTPopupNavigationBar?
+    public var backgroundView: UIView? {
         willSet {
             backgroundView?.removeFromSuperview()
             newValue?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -42,15 +42,15 @@ public class MTPopupController: NSObject {
             containerViewController?.view.insertSubview(newValue!, at: 0)
         }
     }
-    var containerView: UIView?
-    var topViewController: UIViewController? {
+    public var containerView: UIView?
+    public var topViewController: UIViewController? {
         return viewControllers.last
     }
-    var presented: Bool {
+    public var presented: Bool {
         return containerViewController!.presentingViewController != nil
     }
 
-    var containerViewController: MTPopupContainerViewController?
+    fileprivate var containerViewController: MTPopupContainerViewController?
 
     fileprivate let MTPopupBottomSheetExtraHeight: CGFloat = 80
 
@@ -79,7 +79,7 @@ public class MTPopupController: NSObject {
         setupNavigationBar()
     }
 
-    convenience init(rootViewController: UIViewController) {
+    public convenience init(rootViewController: UIViewController) {
         self.init()
         push(rootViewController, animated: false)
     }

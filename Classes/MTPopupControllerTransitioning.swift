@@ -2,7 +2,7 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-protocol MTPopupControllerTransitioning {
+public protocol MTPopupControllerTransitioning {
     /**
      Return duration of transitioning, it will be used to animate transitioning of background view.
      */

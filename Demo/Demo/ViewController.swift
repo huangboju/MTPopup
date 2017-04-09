@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MTPopup
 
 class ViewController: UIViewController {
 
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "STPopupController"
+        title = "MTPopupController"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
@@ -54,8 +55,8 @@ extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        
-        let popupController = STPopupController(rootViewController: controllers[indexPath.row].init())
+
+        let popupController = MTPopupController(rootViewController: controllers[indexPath.row].init())
 
         if indexPath == IndexPath(row: 1, section: 0) {
             let blurEffect = UIBlurEffect(style: .dark)
