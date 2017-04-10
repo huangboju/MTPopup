@@ -35,7 +35,7 @@ popupController.present(in: self)
 
 * Custom backgroundView
 
-```
+```swift
 let popupController = MTPopupController(rootViewController: YourController())
 
 let blurEffect = UIBlurEffect(style: .dark)
