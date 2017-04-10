@@ -1,6 +1,8 @@
 
 # Translation to [STPopup](https://github.com/kevin0571/STPopup)
 # Overview
+There are two ways to provide,`formSheet`、`bottomSheet`,and you can customize backgroundView.
+You just need to touch the bar and then move down to close.
 
 ![](https://github.com/huangboju/SwiftySTPopup/blob/master/2017-03-21%2020_24_31.gif)
 
