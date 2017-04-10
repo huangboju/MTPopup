@@ -14,14 +14,14 @@ public enum MTPopupStyle {
     case formSheet, bottomSheet
 }
 
-public enum MTPopupTransitionStyle {
+enum MTPopupTransitionStyle {
     case slideVertical, fade, custom
 }
 
 public class MTPopupController: NSObject {
     public var style: MTPopupStyle = .formSheet
-    public var transitionStyle = MTPopupTransitionStyle.slideVertical
-    public var transitioning: MTPopupControllerTransitioning?
+    var transitionStyle = MTPopupTransitionStyle.slideVertical
+    var transitioning: MTPopupControllerTransitioning?
     public var navigationBarHidden = false {
         didSet {
             set(navigationBarHidden: navigationBarHidden, animated: false)
@@ -32,7 +32,7 @@ public class MTPopupController: NSObject {
             updateNavigationBar(animated: false)
         }
     }
-    public var navigationBar: MTPopupNavigationBar?
+    var navigationBar: MTPopupNavigationBar?
     public var backgroundView: UIView? {
         willSet {
             backgroundView?.removeFromSuperview()
