@@ -16,7 +16,7 @@
 
 # Usage
 
-* bottomSheet
+* **BottomSheet**
 ```swift
 class YourController: UIViewController {
 
@@ -33,7 +33,7 @@ popupController.style = .bottomSheet // Default is formSheet
 popupController.present(in: self)
 ```
 
-* Custom backgroundView
+* **Custom backgroundView**
 
 ```swift
 let popupController = MTPopupController(rootViewController: YourController())
