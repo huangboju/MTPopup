@@ -31,7 +31,7 @@ class PopupViewController1: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextAction))
     }
 
-    @objc func nextAction() {
+    func nextAction() {
         popupController?.push(PopupViewController2(), animated: true)
     }
 

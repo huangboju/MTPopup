@@ -13,7 +13,30 @@ extension UIViewController {
         static var popupControllerKey: String? = "popupController"
     }
 
-    func mt_viewDidLoad() {
+    static let controllerOnceToken = UUID().uuidString
+
+    open override class func initialize() {
+        DispatchQueue.once(token: controllerOnceToken) {
+            let selectors: [Selector] = [
+                #selector(viewDidLoad),
+                #selector(present),
+                #selector(dismiss),
+                #selector(getter: presentedViewController),
+                #selector(getter: presentingViewController)
+            ]
+            selectors.forEach {
+                swizzle($0, to: Selector("st_" + $0.description))
+            }
+        }
+    }
+
+    class func swizzle(_ originalSelector: Selector, to swizzledSelector: Selector) {
+        let originalMethod = class_getInstanceMethod(self, originalSelector)
+        let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
+        method_exchangeImplementations(originalMethod, swizzledMethod)
+    }
+
+    func st_viewDidLoad() {
         var contentSize = CGSize.zero
         switch UIApplication.shared.statusBarOrientation {
         case .landscapeLeft, .landscapeRight:
@@ -28,12 +51,12 @@ extension UIViewController {
         if contentSize != .zero {
             view.frame = CGRect(origin: .zero, size: contentSize)
         }
-        mt_viewDidLoad()
+        st_viewDidLoad()
     }
 
-    func mt_presentViewController(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?) {
+    func st_presentViewController(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?) {
         guard let popupController = popupController else {
-            mt_presentViewController(viewControllerToPresent, animated: animated, completion: completion)
+            st_presentViewController(viewControllerToPresent, animated: animated, completion: completion)
             return
         }
 
@@ -41,24 +64,24 @@ extension UIViewController {
         controller?.present(viewControllerToPresent, animated: animated, completion: completion)
     }
 
-    func mt_dismissViewControllerAnimated(_ animated: Bool, completion: (() -> Void)?) {
+    func st_dismissViewControllerAnimated(_ animated: Bool, completion: (() -> Void)?) {
         guard let popupController = popupController else {
-            mt_dismissViewControllerAnimated(animated, completion: completion)
+            st_dismissViewControllerAnimated(animated, completion: completion)
             return
         }
 
         popupController.dismiss(with: completion)
     }
 
-    var mt_presentedViewController: UIViewController? {
-        guard let popupController = popupController else { return self.mt_presentedViewController }
+    var st_presentedViewController: UIViewController? {
+        guard let popupController = popupController else { return self.st_presentedViewController }
 
         let controller = popupController.value(forKey: "containerViewController") as? UIViewController
         return controller?.presentedViewController
     }
 
-    var mt_presentingViewController: UIViewController? {
-        guard let popupController = popupController else { return self.mt_presentingViewController }
+    var st_presentingViewController: UIViewController? {
+        guard let popupController = popupController else { return self.st_presentingViewController }
         let controller = popupController.value(forKey: "containerViewController") as? UIViewController
         return controller?.presentingViewController
     }

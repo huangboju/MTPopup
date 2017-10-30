@@ -14,45 +14,25 @@ public enum MTPopupStyle {
     case formSheet, bottomSheet
 }
 
-enum MTPopupTransitionStyle {
+public enum MTPopupTransitionStyle {
     case slideVertical, fade, custom
 }
 
 public class MTPopupController: NSObject {
-    /// Default formSheet
     public var style: MTPopupStyle = .formSheet
-
-    /// Default 0
-    public var cornerRadius: CGFloat = 0 {
-        didSet {
-            containerView?.layer.cornerRadius = cornerRadius
-            containerView?.clipsToBounds = true
-        }
-    }
-
-    /// Default true
-    public var autoAdjustKeyboardEvent = true
-
-    var transitionStyle = MTPopupTransitionStyle.slideVertical
-
-    var transitioning: MTPopupControllerTransitioning?
-
-    /// Default false
+    public var transitionStyle = MTPopupTransitionStyle.slideVertical
+    public var transitioning: MTPopupControllerTransitioning?
     public var navigationBarHidden = false {
         didSet {
             set(navigationBarHidden: navigationBarHidden, animated: false)
         }
     }
-
-    /// Default false
     public var hidesCloseButton = false {
         didSet {
             updateNavigationBar(animated: false)
         }
     }
-    
-    var navigationBar: MTPopupNavigationBar?
-    
+    public var navigationBar: MTPopupNavigationBar?
     public var backgroundView: UIView? {
         willSet {
             backgroundView?.removeFromSuperview()
@@ -62,13 +42,10 @@ public class MTPopupController: NSObject {
             containerViewController?.view.insertSubview(newValue!, at: 0)
         }
     }
-
     public var containerView: UIView?
-
     public var topViewController: UIViewController? {
         return viewControllers.last
     }
-
     public var presented: Bool {
         return containerViewController!.presentingViewController != nil
     }
@@ -125,9 +102,6 @@ public class MTPopupController: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChange), name: .UIApplicationDidChangeStatusBarOrientation, object: nil)
 
         let keyboardShowing = #selector(keyboardWillShow)
-
-        guard autoAdjustKeyboardEvent else { return }
-
         let items: [(Selector, Notification.Name)] = [
             (keyboardShowing, .UIKeyboardWillShow),
             (keyboardShowing, .UIKeyboardWillChangeFrame),
@@ -467,6 +441,8 @@ public class MTPopupController: NSObject {
     func setupContainerView() {
         containerView = UIView()
         containerView?.backgroundColor = UIColor.white
+        containerView?.layer.cornerRadius = 4
+        containerView?.clipsToBounds = true
         containerViewController?.view.addSubview(containerView!)
 
         contentView = UIView()
@@ -483,7 +459,7 @@ public class MTPopupController: NSObject {
         defaultLeftBarItem = MTPopupLeftBarItem(with: self, action: #selector(leftBarItemDidTap))
     }
 
-    @objc func leftBarItemDidTap() {
+    func leftBarItemDidTap() {
         switch defaultLeftBarItem!.type {
         case .cross:
             dismiss()
@@ -492,12 +468,12 @@ public class MTPopupController: NSObject {
         }
     }
 
-    @objc func bgViewDidTap() {
+    func bgViewDidTap() {
         containerView?.endEditing(true)
     }
 
     // MARK: - UIApplicationDidChangeStatusBarOrientationNotification
-    @objc func orientationDidChange() {
+    func orientationDidChange() {
         containerView?.endEditing(true)
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.containerView?.alpha = 0
@@ -510,14 +486,14 @@ public class MTPopupController: NSObject {
     }
 
     // MARK: - UIKeyboardWillShowNotification & UIKeyboardWillHideNotification
-    @objc func keyboardWillShow(notification: Notification) {
+    func keyboardWillShow(notification: Notification) {
         guard getCurrentTextInput(in: containerView!) != nil else { return }
 
         keyboardInfo = notification.userInfo as? [String: Any]
         adjustContainerViewOrigin()
     }
 
-    @objc func keyboardWillHide(notification: Notification) {
+    func keyboardWillHide(notification: Notification) {
         keyboardInfo = nil
 
         guard let keyboardInfo = notification.userInfo as? [String: Any] else { return }
@@ -594,7 +570,7 @@ public class MTPopupController: NSObject {
     }
 
     // MARK: - MTPopupFirstResponderDidChangeNotification
-    @objc func firstResponderDidChange() {
+    func firstResponderDidChange() {
         adjustContainerViewOrigin()
     }
 }

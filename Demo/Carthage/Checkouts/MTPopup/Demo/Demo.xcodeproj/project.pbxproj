@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BEB635191FA6FEC700525EBB /* MTPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88DC5AC1E9A6C0600F8FA1A /* MTPopup.framework */; };
-		BEB6351A1FA6FEC700525EBB /* MTPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D88DC5AC1E9A6C0600F8FA1A /* MTPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D88DC4F21E9A61B500F8FA1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DC4F11E9A61B500F8FA1A /* AppDelegate.swift */; };
 		D88DC4F41E9A61B500F8FA1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DC4F31E9A61B500F8FA1A /* ViewController.swift */; };
 		D88DC4F71E9A61B500F8FA1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D88DC4F51E9A61B500F8FA1A /* Main.storyboard */; };
@@ -18,16 +16,11 @@
 		D88DC5151E9A622700F8FA1A /* BottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DC5121E9A622700F8FA1A /* BottomSheetController.swift */; };
 		D88DC5161E9A622700F8FA1A /* PopupViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DC5131E9A622700F8FA1A /* PopupViewController1.swift */; };
 		D88DC5171E9A622700F8FA1A /* PopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DC5141E9A622700F8FA1A /* PopupViewController2.swift */; };
+		D88DC5A31E9A69DE00F8FA1A /* MTPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88DC5A11E9A69D400F8FA1A /* MTPopup.framework */; };
+		D88DC5A41E9A69DE00F8FA1A /* MTPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D88DC5A11E9A69D400F8FA1A /* MTPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BEB6351B1FA6FEC700525EBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D88DC5A71E9A6C0600F8FA1A /* MTPopup.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D88DC57C1E9A691900F8FA1A;
-			remoteInfo = MTPopup;
-		};
 		D88DC5031E9A61B500F8FA1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D88DC4E61E9A61B500F8FA1A /* Project object */;
@@ -45,13 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BEB6351D1FA6FEC700525EBB /* Embed Frameworks */ = {
+		D88DC5221E9A640800F8FA1A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BEB6351A1FA6FEC700525EBB /* MTPopup.framework in Embed Frameworks */,
+				D88DC5A41E9A69DE00F8FA1A /* MTPopup.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEB635191FA6FEC700525EBB /* MTPopup.framework in Frameworks */,
+				D88DC5A31E9A69DE00F8FA1A /* MTPopup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,12 +167,11 @@
 				D88DC4EA1E9A61B500F8FA1A /* Sources */,
 				D88DC4EB1E9A61B500F8FA1A /* Frameworks */,
 				D88DC4EC1E9A61B500F8FA1A /* Resources */,
-				BEB6351D1FA6FEC700525EBB /* Embed Frameworks */,
+				D88DC5221E9A640800F8FA1A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BEB6351C1FA6FEC700525EBB /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -211,17 +203,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "伯驹 黄";
 				TargetAttributes = {
 					D88DC4ED1E9A61B500F8FA1A = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					D88DC5011E9A61B500F8FA1A = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D88DC4ED1E9A61B500F8FA1A;
 					};
@@ -306,11 +296,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BEB6351C1FA6FEC700525EBB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MTPopup;
-			targetProxy = BEB6351B1FA6FEC700525EBB /* PBXContainerItemProxy */;
-		};
 		D88DC5041E9A61B500F8FA1A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D88DC4ED1E9A61B500F8FA1A /* Demo */;
@@ -347,9 +332,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -357,11 +340,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -390,7 +369,6 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -403,9 +381,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -413,11 +389,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -438,7 +410,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -446,7 +417,6 @@
 		D88DC50C1E9A61B500F8FA1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,15 +427,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangboju.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		D88DC50D1E9A61B500F8FA1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -476,8 +444,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangboju.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -489,8 +456,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangboju.DemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Demo;
 			};
 			name = Debug;
@@ -503,8 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangboju.DemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Demo;
 			};
 			name = Release;

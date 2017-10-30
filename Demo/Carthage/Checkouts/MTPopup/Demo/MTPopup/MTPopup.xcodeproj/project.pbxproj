@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BEB635211FA6FFAE00525EBB /* UIResponder+MTPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB6351F1FA6FFAE00525EBB /* UIResponder+MTPopup.h */; };
-		BEB635221FA6FFAE00525EBB /* UIResponder+MTPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB635201FA6FFAE00525EBB /* UIResponder+MTPopup.m */; };
-		BEB635271FA702B500525EBB /* UIViewController+MTPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB635251FA702B400525EBB /* UIViewController+MTPopup.h */; };
-		BEB635281FA702B500525EBB /* UIViewController+MTPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB635261FA702B400525EBB /* UIViewController+MTPopup.m */; };
 		D88DC5821E9A691900F8FA1A /* MTPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = D88DC5801E9A691900F8FA1A /* MTPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D88DC5951E9A695B00F8FA1A /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DC5891E9A695B00F8FA1A /* Array+Extensions.swift */; };
 		D88DC5961E9A695B00F8FA1A /* Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = D88DC58A1E9A695B00F8FA1A /* Bridging.h */; };
@@ -27,10 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BEB6351F1FA6FFAE00525EBB /* UIResponder+MTPopup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+MTPopup.h"; sourceTree = "<group>"; };
-		BEB635201FA6FFAE00525EBB /* UIResponder+MTPopup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+MTPopup.m"; sourceTree = "<group>"; };
-		BEB635251FA702B400525EBB /* UIViewController+MTPopup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTPopup.h"; sourceTree = "<group>"; };
-		BEB635261FA702B400525EBB /* UIViewController+MTPopup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MTPopup.m"; sourceTree = "<group>"; };
 		D88DC57D1E9A691900F8FA1A /* MTPopup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTPopup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88DC5801E9A691900F8FA1A /* MTPopup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPopup.h; sourceTree = "<group>"; };
 		D88DC5811E9A691900F8FA1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,10 +92,6 @@
 				D88DC5921E9A695B00F8FA1A /* MTPopupNavigationBar.swift */,
 				D88DC5931E9A695B00F8FA1A /* UIResponder+STPopup.swift */,
 				D88DC5941E9A695B00F8FA1A /* UIViewController+STPopup.swift */,
-				BEB6351F1FA6FFAE00525EBB /* UIResponder+MTPopup.h */,
-				BEB635201FA6FFAE00525EBB /* UIResponder+MTPopup.m */,
-				BEB635251FA702B400525EBB /* UIViewController+MTPopup.h */,
-				BEB635261FA702B400525EBB /* UIViewController+MTPopup.m */,
 			);
 			name = Classes;
 			path = ../../../Classes;
@@ -117,9 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D88DC5961E9A695B00F8FA1A /* Bridging.h in Headers */,
-				BEB635271FA702B500525EBB /* UIViewController+MTPopup.h in Headers */,
 				D88DC5821E9A691900F8FA1A /* MTPopup.h in Headers */,
-				BEB635211FA6FFAE00525EBB /* UIResponder+MTPopup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,12 +136,11 @@
 		D88DC5741E9A691900F8FA1A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "伯驹 黄";
 				TargetAttributes = {
 					D88DC57C1E9A691900F8FA1A = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -197,11 +182,9 @@
 				D88DC59C1E9A695B00F8FA1A /* MTPopupControllerTransitioningSlideVertical.swift in Sources */,
 				D88DC59E1E9A695B00F8FA1A /* MTPopupNavigationBar.swift in Sources */,
 				D88DC5991E9A695B00F8FA1A /* MTPopupControllerTransitioning.swift in Sources */,
-				BEB635281FA702B500525EBB /* UIViewController+MTPopup.m in Sources */,
 				D88DC5971E9A695B00F8FA1A /* MTPopupContainerViewController.swift in Sources */,
 				D88DC59A1E9A695B00F8FA1A /* MTPopupControllerTransitioningContext.swift in Sources */,
 				D88DC5951E9A695B00F8FA1A /* Array+Extensions.swift in Sources */,
-				BEB635221FA6FFAE00525EBB /* UIResponder+MTPopup.m in Sources */,
 				D88DC59B1E9A695B00F8FA1A /* MTPopupControllerTransitioningFade.swift in Sources */,
 				D88DC5A01E9A695B00F8FA1A /* UIViewController+STPopup.swift in Sources */,
 				D88DC59D1E9A695B00F8FA1A /* MTPopupLeftBarItem.swift in Sources */,
@@ -220,9 +203,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -230,11 +211,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -279,9 +256,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -289,11 +264,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -325,7 +296,6 @@
 		D88DC5861E9A691900F8FA1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -338,9 +308,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangboju.MTPopup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -348,7 +316,6 @@
 		D88DC5871E9A691900F8FA1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -361,8 +328,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangboju.MTPopup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -386,7 +352,6 @@
 				D88DC5871E9A691900F8FA1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -57,10 +57,8 @@ extension ViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
 
         let popupController = MTPopupController(rootViewController: controllers[indexPath.row].init())
-        popupController.autoAdjustKeyboardEvent = false
 
         if indexPath == IndexPath(row: 1, section: 0) {
-            popupController.cornerRadius = 4
             let blurEffect = UIBlurEffect(style: .dark)
             popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
             popupController.backgroundView?.alpha = 0.8
