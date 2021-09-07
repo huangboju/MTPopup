@@ -122,16 +122,16 @@ public class MTPopupController: NSObject {
         navigationBar?.addObserver(self, forKeyPath: "tintColor", options: .new, context: nil)
         navigationBar?.addObserver(self, forKeyPath: "titleTextAttributes", options: .new, context: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChange), name: .UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChange), name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
 
         let keyboardShowing = #selector(keyboardWillShow)
 
         guard autoAdjustKeyboardEvent else { return }
 
         let items: [(Selector, Notification.Name)] = [
-            (keyboardShowing, .UIKeyboardWillShow),
-            (keyboardShowing, .UIKeyboardWillChangeFrame),
-            (#selector(keyboardWillHide), .UIKeyboardWillHide),
+            (keyboardShowing, UIResponder.keyboardWillShowNotification),
+            (keyboardShowing, UIResponder.keyboardWillChangeFrameNotification),
+            (#selector(keyboardWillHide), UIResponder.keyboardWillHideNotification),
             (#selector(firstResponderDidChange), MTPopupFirstResponderDidChange)
         ]
 
@@ -271,8 +271,8 @@ public class MTPopupController: NSObject {
         fromVC.beginAppearanceTransition(false, animated: animated)
         toVC.beginAppearanceTransition(true, animated: animated)
 
-        fromVC.willMove(toParentViewController: nil)
-        containerViewController?.addChildViewController(toVC)
+        fromVC.willMove(toParent: nil)
+        containerViewController?.addChild(toVC)
 
         if animated {
             UIGraphicsBeginImageContextWithOptions(fromVC.view.bounds.size, false, UIScreen.main.scale)
@@ -297,10 +297,10 @@ public class MTPopupController: NSObject {
                 self.containerViewController?.setNeedsStatusBarAppearanceUpdate()
             }, completion: { (flag) in
                 capturedView.removeFromSuperview()
-                fromVC.removeFromParentViewController()
+                fromVC.removeFromParent()
 
                 self.containerView?.isUserInteractionEnabled = true
-                toVC.didMove(toParentViewController: self.containerViewController)
+                toVC.didMove(toParent: self.containerViewController)
 
                 fromVC.endAppearanceTransition()
                 toVC.endAppearanceTransition()
@@ -313,9 +313,9 @@ public class MTPopupController: NSObject {
             updateNavigationBar(animated: animated)
 
             fromVC.view.removeFromSuperview()
-            fromVC.removeFromParentViewController()
+            fromVC.removeFromParent()
 
-            toVC.didMove(toParentViewController: containerViewController)
+            toVC.didMove(toParent: containerViewController)
 
             fromVC.endAppearanceTransition()
             toVC.endAppearanceTransition()
@@ -533,7 +533,7 @@ public class MTPopupController: NSObject {
         containerView?.transform = CGAffineTransform.identity
 
         let textFieldBottomY = currentTextInput.convert(.zero, to: containerViewController?.view).y + currentTextInput.bounds.height
-        let keyboardHeight = (keyboardInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
+        let keyboardHeight = (keyboardInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
 
         var offsetY: CGFloat = 0
         guard let minY = containerView?.frame.minY else { return }
@@ -560,12 +560,12 @@ public class MTPopupController: NSObject {
     }
 
     func setAnimation(with keyboardInfo: [String: Any], transform: CGAffineTransform) {
-        guard let duration = (keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
-        guard let curve = (keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int) else { return }
+        guard let duration = (keyboardInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
+        guard let curve = (keyboardInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? Int) else { return }
 
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
+        UIView.setAnimationCurve(UIView.AnimationCurve(rawValue: curve)!)
         UIView.setAnimationDuration(duration)
 
         containerView?.transform = transform
@@ -654,7 +654,7 @@ extension MTPopupController: UIViewControllerAnimatedTransitioning {
             transitionContext.containerView.addSubview(toVC.view)
 
             topViewController?.beginAppearanceTransition(true, animated: true)
-            toVC.addChildViewController(topViewController!)
+            toVC.addChild(topViewController!)
 
             layoutContainerView()
             contentView?.addSubview(topViewController!.view)
@@ -676,14 +676,14 @@ extension MTPopupController: UIViewControllerAnimatedTransitioning {
                 self.containerView?.isUserInteractionEnabled = true
 
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-                topViewController?.didMove(toParentViewController: toVC)
+                topViewController?.didMove(toParent: toVC)
                 fromVC.endAppearanceTransition()
             })
         } else {
             toVC.beginAppearanceTransition(true, animated: true)
 
             topViewController?.beginAppearanceTransition(false, animated: true)
-            topViewController?.willMove(toParentViewController: nil)
+            topViewController?.willMove(toParent: nil)
 
             let lastBackgroundViewAlpha = backgroundView?.alpha
             backgroundView?.isUserInteractionEnabled = false
@@ -701,7 +701,7 @@ extension MTPopupController: UIViewControllerAnimatedTransitioning {
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
 
                 topViewController?.view.removeFromSuperview()
-                topViewController?.removeFromParentViewController()
+                topViewController?.removeFromParent()
 
                 toVC.endAppearanceTransition()
 

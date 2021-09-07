@@ -6,7 +6,7 @@
 //  Copyright © 2016年 伯驹 黄. All rights reserved.
 //
 
-protocol MTPopupNavigationTouchEventDelegate: class {
+protocol MTPopupNavigationTouchEventDelegate: AnyObject {
     func popup(_ navigationBar: MTPopupNavigationBar, touchDidMoveWith offset: CGFloat)
     func popup(_ navigationBar: MTPopupNavigationBar, touchDidEndWith offset: CGFloat)
 }

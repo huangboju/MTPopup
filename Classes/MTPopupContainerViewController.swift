@@ -9,18 +9,18 @@
 public class MTPopupContainerViewController: UIViewController {
 
     override public var preferredStatusBarStyle: UIStatusBarStyle {
-        guard let presentingViewController = presentingViewController, !childViewControllers.isEmpty else {
+        guard let presentingViewController = presentingViewController, !children.isEmpty else {
             return super.preferredStatusBarStyle
         }
         return presentingViewController.preferredStatusBarStyle
     }
 
-    override public var childViewControllerForStatusBarHidden: UIViewController? {
-        return childViewControllers.last
+    override public var childForStatusBarHidden: UIViewController? {
+        return children.last
     }
 
-    override public var childViewControllerForStatusBarStyle: UIViewController? {
-        return childViewControllers.last
+    override public var childForStatusBarStyle: UIViewController? {
+        return children.last
     }
 
     override public func show(_ vc: UIViewController, sender _: Any?) {
@@ -35,7 +35,7 @@ public class MTPopupContainerViewController: UIViewController {
         let size = vc.landscapeContentSizeInPopup
         let contentSize = vc.contentSizeInPopup
         if contentSize != .zero || size != .zero {
-            let childViewController = childViewControllers.last
+            let childViewController = children.last
             childViewController?.popupController?.push(vc, animated: true)
         } else {
             present(vc, animated: true, completion: nil)
